@@ -43,7 +43,7 @@
 |------|----|-------|
 |seller_id|references|foreign_key: true|
 |buyer_id|references|foreign_key: true|
-|rating|string|null: false|
+|rating|integer|null: false|
 
 ### Association
 - belongs_to :users
