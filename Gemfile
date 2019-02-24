@@ -65,3 +65,5 @@ end
 
 gem 'carrierwave'
 gem 'fog-aws'
+gem 'haml-rails'
+gem 'erb2haml'
