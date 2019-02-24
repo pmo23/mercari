@@ -1,0 +1,38 @@
+body {
+    position: relative;
+    min-height: 100%;
+    background: #f5f5f5;
+    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+    font-size: 14px;
+    color: #333;
+    line-height: 1;
+}
+
+* {
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.li{
+    width:70px;
+    height:32px;
+}
+
+.l-left {
+    float: left;
+}
+
+.l-right {
+    float: right;
+}

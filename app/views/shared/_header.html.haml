@@ -1,0 +1,27 @@
+%header.pc-header.visible-pc
+  .pc-header-inner
+    .clearfix
+      %h1.l-left
+        %a{:href => ""}
+          = image_tag "logo.svg", :height => "36", :width => "134", alt:"mercari"
+      %form.pc-header-form.l-right{:action => ""}
+        %input.input-default{:name => "keyword", :placeholder => "キーワードから探す", :type => "search", :value => ""}/
+        %button#sbtn2{:type => "submit"}
+          = fa_icon 'search', class: 'icon'
+    .pc-header-nav-box.clearfix
+      %nav.l-left
+        %ul.pc-header-nav
+          %li
+            %h2
+              %a.pc-header-nav-root{:href => ""} カテゴリーから探す
+          %li
+            %h2
+              %a.pc-header-nav-root{:href => ""} ブランドから探す
+      .l-right
+        %ul.pc-header-login-nav
+          %li
+            %h2
+              %a.sp-header-btn.button.btn-red{:href => ""} ログイン
+          %li
+            %h2
+              %a.sp-header-btn.button.header-signup{:href => ""} 新規会員登録

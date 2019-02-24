@@ -1,0 +1,77 @@
+%footer
+  %aside.app-banner
+    .app-banner-pc
+      .app-banner-pc-inner
+        %h2 スマホでかんたんフリマアプリ
+        %p 今すぐ無料ダウンロード!
+        .app-banner-icon
+          = image_tag "icon.png", :width => "68"
+          %ul
+            %li
+              %a{:href => "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", :target => "_blank"}
+                = image_tag "app-store.svg"
+            %li{:style => "margin-left: 16px;"}
+              %a{:href => "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", :target => "_blank"}
+                = image_tag "google-play.svg"
+      %figure
+        = image_tag "aside1.png", :width => "100%"
+  %footer.global-footer
+    %nav
+      %li.footer-cell
+        %h2.footer-head メルカリについて
+        %ul
+          %li 会社概要(運営会社)
+          %li プライバシーポリシー
+          %li メルカリ利用規約
+          %li 有償ポイントに関する特約
+          %li あんしんスマホサポート制度に関する利用特約
+          %li コンプライアンスポリシー
+          %li 個人データの安全に管理に係る基本方針
+          %li 特定商取引に関する表記
+          %li 資金決済法に基づく表示
+          %li 法令順守と犯罪防止のために
+          %li 採用情報
+      %li.footer-cell
+        %h2.footer-head メルカリを見る
+        %ul
+          %li カテゴリー一覧
+          %li ブランド一覧
+          %li 出品地域一覧
+          %li 公式ブログ
+          %li 公式Twiter
+          %li 公式Facebook
+      %li.footer-cell
+        %h2.footer-head ヘルプ&amp;ガイド
+        %ul
+          %li メルカリガイド
+          %li メルカリロゴ利用ガイドライン
+          %li お知らせ
+          %li らくらくメルカリ便とは
+          %li ゆうゆうメルカリ便とは
+          %li 大型らくらくメルカリ便とは
+          %li 車体取引ガイド
+          %li 返品・返金ポリシー
+          %li メルカリあんしん・あんぜん宣言!
+          %li 偽ブランド品撲滅への取り組み
+          %li メルカリボックス
+      %li.footer-cell
+        %h2.footer-head 国
+        %ul.footer-nav-lang
+          %li
+            %a{:href => "https://www.mercari.com/", :style => "text-decoration: none;color: #fff;", :target => "_blank"}
+              = image_tag "us.png", :style => "margin-right: 8px;", :width => "22"
+              United States
+          %li
+            %a{:href => "https://www.mercari.com/uk/", :style => "text-decoration: none;color: #fff;", :target => "_blank"}
+              = image_tag "uk.png", :style => "margin-right: 8px;", :width => "22"
+              United Kingdom
+          %li
+            %a{:href => "", :style => "text-decoration: none;color: #fff;"}
+              = image_tag "jp.png", :style => "margin-right: 8px;", :width => "22"
+              日本
+    %a.footer-logo{:href => ""}
+      = image_tag "logo-white.svg", :width => "124"
+    %p.footer-copyright ©︎ 2019 Mercari
+  %a.footer-sell-btn{:href => ""}
+    %div{:style => "margin-top: 28px;font-size: 22px;"} 出品
+    = fa_icon 'camera', class: 'fa-3x'
