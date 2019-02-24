@@ -41,8 +41,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|seller_id|string||
-|buyer_id|string||
+|seller_id|references|foreign_key: true|
+|buyer_id|references|foreign_key: true|
 |rating|string|null: false|
 
 ### Association
@@ -87,7 +87,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|product_id|string|null: false|
+|product_id|references|foreign_key: true|
 |product_image|string|null: false|
 
 ### Association
@@ -97,9 +97,9 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|seller_id|string|null: false|
-|buyer_id|string|null: false|
-|product_id|string|null: false|
+|seller_id|references|foreign_key: true|
+|buyer_id|references|foreign_key: true|
+|product_id|references|foreign_key: true|
 |datatime|datetime|null: false|
 
 ### Association
@@ -110,8 +110,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|product_id|references|null: false, foreign_key: true|
+|user_id|references|foreign_key: true|
+|product_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -122,8 +122,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|product_id|references|null: false, foreign_key: true|
+|user_id|references|foreign_key: true|
+|product_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -134,8 +134,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|product_id|references|null: false, foreign_key: true|
+|user_id|references|foreign_key: true|
+|product_id|references|foreign_key: true|
 |comment|text|null: false|
 
 ### Association
