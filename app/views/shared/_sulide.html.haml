@@ -1,0 +1,33 @@
+%main.white{:role => "main"}
+  %section
+    .slideshow
+      %input#switch1{:checked => "checked", :name => "slideshow", :type => "radio"}/
+      %input#switch2{:name => "slideshow", :type => "radio"}/
+      %input#switch3{:name => "slideshow", :type => "radio"}/
+      %input#switch4{:name => "slideshow", :type => "radio"}/
+      %input#switch5{:name => "slideshow", :type => "radio"}/
+      .slideContents
+        %section#slide1
+          = image_tag "main-img1.svg"
+        %section#slide2
+          = image_tag "main-img2.png"
+        %section#slide3
+          = image_tag "main-img3.png"
+        %section#slide4
+          = image_tag "main-img4.png"
+        %section#slide5
+          = image_tag "main-img5.svg"
+      %p.arrow.prev
+        %i.ico
+        %label{:for => "switch1"}
+        %label{:for => "switch2"}
+        %label{:for => "switch3"}
+        %label{:for => "switch4"}
+        %label{:for => "switch5"}
+      %p.arrow.next
+        %i.ico
+        %label{:for => "switch1"}
+        %label{:for => "switch2"}
+        %label{:for => "switch3"}
+        %label{:for => "switch4"}
+        %label{:for => "switch5"}

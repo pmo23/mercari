@@ -45,8 +45,6 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
-  gem 'rspec-rails'
-  gem 'pry-rails'
 end
 
 group :development do
@@ -69,4 +67,4 @@ gem 'carrierwave'
 gem 'fog-aws'
 gem 'haml-rails'
 gem 'erb2haml'
-
+gem 'font-awesome-rails'
