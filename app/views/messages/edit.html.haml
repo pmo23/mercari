@@ -18,14 +18,4 @@
             %button#google-login.btn-default.btn-sns.btn-sns__google
               = fa_icon 'google', class: 'btn-sns__icon-google'
               Googleで登録
-    %footer.single-footer
-      %ul.single-footer__list
-        %li
-          =link_to "プライバシーポリシー", ''
-        %li
-          =link_to "メルカリ利用規約", ''
-        %li
-          =link_to "特定商取引に関する表記", ''
-      =link_to '', class: "single-footer__icon" do
-        = image_tag "logo-gray.svg", width: "80", height: "65"
-      %p.single-footer__small ©︎ 2019 Mercari
+    = render "shared/footer2"
