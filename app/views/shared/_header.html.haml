@@ -13,15 +13,15 @@
         %ul.pc-header-nav
           %li
             %h2
-              %a.pc-header-nav-root{:href => ""} カテゴリーから探す
+              =link_to 'カテゴリーから探す', '', class: 'pc-header-nav-root'
           %li
             %h2
-              %a.pc-header-nav-root{:href => ""} ブランドから探す
+              =link_to 'ブランドから探す', '', class: 'pc-header-nav-root'
       .l-right
         %ul.pc-header-login-nav
           %li
             %h2
-              %a.sp-header-btn.button.btn-red{:href => ""} ログイン
+              =link_to 'ログイン', '', class: 'sp-header-btn button btn-red'
           %li
             %h2
-              %a.sp-header-btn.button.header-signup{:href => ""} 新規会員登録
+              =link_to '新規会員登録', '', class: 'sp-header-btn button header-signup'

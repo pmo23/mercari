@@ -8,10 +8,10 @@
           = image_tag "icon.png", :width => "68"
           %ul
             %li
-              %a{:href => "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", :target => "_blank"}
+              =link_to 'https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8' do
                 = image_tag "app-store.svg"
             %li{:style => "margin-left: 16px;"}
-              %a{:href => "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", :target => "_blank"}
+              =link_to 'https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja' do
                 = image_tag "google-play.svg"
       %figure
         = image_tag "aside1.png", :width => "100%"
@@ -58,20 +58,17 @@
         %h2.footer-head 国
         %ul.footer-nav-lang
           %li
-            %a{:href => "https://www.mercari.com/", :style => "text-decoration: none;color: #fff;", :target => "_blank"}
-              = image_tag "us.png", :style => "margin-right: 8px;", :width => "22"
+            =link_to 'https://www.mercari.com/' do
+              = image_tag "us.png"
               United States
           %li
-            %a{:href => "https://www.mercari.com/uk/", :style => "text-decoration: none;color: #fff;", :target => "_blank"}
-              = image_tag "uk.png", :style => "margin-right: 8px;", :width => "22"
+            =link_to 'https://www.mercari.com/uk/' do
+              = image_tag "uk.png"
               United Kingdom
           %li
-            %a{:href => "", :style => "text-decoration: none;color: #fff;"}
-              = image_tag "jp.png", :style => "margin-right: 8px;", :width => "22"
+            =link_to 'https://www.mercari.com/jp/' do
+              = image_tag "jp.png"
               日本
-    %a.footer-logo{:href => ""}
-      = image_tag "logo-white.svg", :width => "124"
+    =link_to '', class:'footer-logo' do
+      = image_tag "logo-white.svg", class: "footer-logo-bottom"
     %p.footer-copyright ©︎ 2019 Mercari
-  %a.footer-sell-btn{:href => ""}
-    %div{:style => "margin-top: 28px;font-size: 22px;"} 出品
-    = fa_icon 'camera', class: 'fa-3x'

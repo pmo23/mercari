@@ -2,10 +2,10 @@
   %h2.pickup-head ピックアップカテゴリー
   %section.items-box-container
     %h3.text-center
-      %a{:href => ""} レディース新着アイテム
+      =link_to 'レディース新着アイテム', ''
     .items-box-content.clearfix
       %section.items-box
-        %a{:href => ""}
+        =link_to '' do
           %figure.items-box-photo
             = image_tag "m24.jpg"
           .items-box-body
@@ -14,7 +14,7 @@
               .items-box-price ¥ 600
               %p.items-box-tax (税込)
       %section.items-box
-        %a{:href => ""}
+        =link_to '' do
           %figure.items-box-photo
             = image_tag "m94.jpg"
           .items-box-body
@@ -23,7 +23,7 @@
               .items-box-price ¥ 1,300
               %p.items-box-tax (税込)
       %section.items-box
-        %a{:href => ""}
+        =link_to '' do
           %figure.items-box-photo
             = image_tag "m24.jpg"
           .items-box-body
@@ -32,7 +32,7 @@
               .items-box-price ¥ 600
               %p.items-box-tax (税込)
       %section.items-box
-        %a{:href => ""}
+        =link_to '' do
           %figure.items-box-photo
             = image_tag "m24.jpg"
           .items-box-body
@@ -41,4 +41,4 @@
               .items-box-price ¥ 600
               %p.items-box-tax (税込)
     .view-all
-      %a{:href => ""} すべての商品を見る
+      =link_to "すべての商品を見る", ''
