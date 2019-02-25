@@ -2,7 +2,7 @@
   .pc-header-inner
     .clearfix
       %h1.l-left
-        %a{:href => ""}
+        =link_to '' do
           = image_tag "logo.svg", :height => "36", :width => "134", alt:"mercari"
       %form.pc-header-inner__form.l-right{:action => ""}
         %input.input-default{:name => "keyword", :placeholder => "キーワードから探す", :type => "search", :value => ""}/
