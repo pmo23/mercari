@@ -1,6 +1,7 @@
 .app-banner {
-  background: url(aside.jpg);
+  background-image: image-url("aside.jpg");
   background-position: center;
+  background-size: cover;
   &--pc {
   overflow: hidden;
   position: relative;
