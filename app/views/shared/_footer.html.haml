@@ -1,10 +1,10 @@
 %footer
   %aside.app-banner
-    .app-banner-pc
-      .app-banner-pc-inner
+    .app-banner--pc
+      .app-banner--pc__inner
         %h2 スマホでかんたんフリマアプリ
         %p 今すぐ無料ダウンロード!
-        .app-banner-icon
+        .app-banner--pc__icon
           = image_tag "icon.png", :width => "68"
           %ul
             %li
@@ -15,10 +15,10 @@
                 = image_tag "google-play.svg"
       %figure
         = image_tag "aside1.png", :width => "100%"
-  %footer.global-footer
+  %footer.footer
     %nav
       %li.footer-cell
-        %h2.footer-head メルカリについて
+        %h2.footer-cell--head メルカリについて
         %ul
           %li 会社概要(運営会社)
           %li プライバシーポリシー
@@ -32,7 +32,7 @@
           %li 法令順守と犯罪防止のために
           %li 採用情報
       %li.footer-cell
-        %h2.footer-head メルカリを見る
+        %h2.footer-cell--head メルカリを見る
         %ul
           %li カテゴリー一覧
           %li ブランド一覧
@@ -41,7 +41,7 @@
           %li 公式Twiter
           %li 公式Facebook
       %li.footer-cell
-        %h2.footer-head ヘルプ&amp;ガイド
+        %h2.footer-cell--head ヘルプ&amp;ガイド
         %ul
           %li メルカリガイド
           %li メルカリロゴ利用ガイドライン
@@ -55,8 +55,8 @@
           %li 偽ブランド品撲滅への取り組み
           %li メルカリボックス
       %li.footer-cell
-        %h2.footer-head 国
-        %ul.footer-nav-lang
+        %h2.footer-cell--head 国
+        %ul.footer-cell--lang
           %li
             =link_to 'https://www.mercari.com/' do
               = image_tag "us.png"

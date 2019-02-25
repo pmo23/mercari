@@ -4,21 +4,21 @@
       %h1.l-left
         %a{:href => ""}
           = image_tag "logo.svg", :height => "36", :width => "134", alt:"mercari"
-      %form.pc-header-form.l-right{:action => ""}
+      %form.pc-header-inner__form.l-right{:action => ""}
         %input.input-default{:name => "keyword", :placeholder => "キーワードから探す", :type => "search", :value => ""}/
         %button#sbtn2{:type => "submit"}
           = fa_icon 'search', class: 'icon'
-    .pc-header-nav-box.clearfix
+    .pc-header-nav.clearfix
       %nav.l-left
-        %ul.pc-header-nav
+        %ul.pc-header-nav__box
           %li
             %h2
-              =link_to 'カテゴリーから探す', '', class: 'pc-header-nav-root'
+              =link_to 'カテゴリーから探す', '', class: 'pc-header-nav__root'
           %li
             %h2
-              =link_to 'ブランドから探す', '', class: 'pc-header-nav-root'
+              =link_to 'ブランドから探す', '', class: 'pc-header-nav__root'
       .l-right
-        %ul.pc-header-login-nav
+        %ul.pc-header-nav__login
           %li
             %h2
               =link_to 'ログイン', '', class: 'sp-header-btn button btn-red'

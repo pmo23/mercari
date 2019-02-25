@@ -12,11 +12,8 @@
         content: "";
         display: block;
         clear: both;
-            .l-left {
-            float: left;
-            }
         }
-        .pc-header-form {
+        &__form {
         position: relative;
         width: calc(100% - (134px + 16px));
         padding-top: 2px;
@@ -43,9 +40,9 @@
             font-size:20px;
             }
         }
-        .pc-header-nav-box {
+        .pc-header-nav {
         margin: 8px 0 0;
-            .pc-header-nav {
+            &__box {
             font-size: 30px;
             padding: 0;
                 li {
@@ -56,48 +53,44 @@
                     h2 {
                     font-size: 14px;
                     font-weight: 400;
-                        &-root {
+                        &__root {
                         }
                     }
                 }
             }
-            .l-right {
-            float: right;
-                .pc-header-login-nav{
-                margin: 0;
-                    li {
+            &__login{
+            margin: 0;
+                li {
+                display: inline-block;
+                margin: 0 0 0 8px;
+                padding: 0;
+                    .sp-header-btn {
                     display: inline-block;
-                    margin: 0 0 0 8px;
-                    padding: 0;
-                        .sp-header-btn {
-                        display: inline-block;
-                        padding: 0 6px;
-                        border-radius: 4px;
-                        text-align: center;
-                        line-height: 32px;
-                        margin: 0;
-                        }
-                        .button {
-                        display: inline-block;
-                        // padding: 10px;
-                        margin: 3px;
-                        border-radius: 4px;
-                        color: $white;
-                        text-decoration: none;
-                        letter-spacing: 1px;
-                        font-size: 0.7rem;
-                        }
-                        .btn-red {
-                        background: #ea352d;
-                        border: 1px solid #ea352d;
-                        color: $white;
-                        }
-                        .header-signup {
-                        display: block;
-                        border: 1px solid #0099e8;
-                        background: $white;
-                        color: #0099e8;
-                        }
+                    padding: 0 6px;
+                    border-radius: 4px;
+                    text-align: center;
+                    line-height: 32px;
+                    margin: 0;
+                    }
+                    .button {
+                    display: inline-block;
+                    margin: 3px;
+                    border-radius: 4px;
+                    color: $white;
+                    text-decoration: none;
+                    letter-spacing: 1px;
+                    font-size: 0.7rem;
+                    }
+                    .btn-red {
+                    background: #ea352d;
+                    border: 1px solid #ea352d;
+                    color: $white;
+                    }
+                    .header-signup {
+                    display: block;
+                    border: 1px solid #0099e8;
+                    background: $white;
+                    color: #0099e8;
                     }
                 }
             }

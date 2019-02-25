@@ -5,7 +5,7 @@
   text-align: center;
   font-size: 28px;
   }
-  .items-box-container {
+  .items-box__container {
   width: 940px;
   margin: 0 auto;
     .text-center {
@@ -30,7 +30,7 @@
       display: block;
       color: #333;
       }
-      &-photo {
+      &__photo {
       height: 220px;
       overflow: hidden;
       position: relative;
@@ -43,7 +43,7 @@
         transform: translate(-50%, 0);
         }
       }
-      &-content {
+      &__content {
       width: auto;
       margin: 0 auto;
         ::after {
@@ -52,11 +52,11 @@
         display: block;
         }
       }
-      &-body {
+      &__body {
       padding: 16px;
       height: 110px;
       }
-      &-name {
+      &__name {
       overflow: hidden;
       position: relative;
       font-weight: 400;
@@ -67,16 +67,16 @@
       font-size: 16px;
       color: #333;
       }
-        &-num {
+        &__num {
         margin: 8px 0 0;
         }
-        &-price {
+        &__price {
         font-size: 20px;
         font-weight: 600;
         float: left;
         color: #333;
         }
-        &-tax {
+        &__tax {
         font-size: 10px;
         clear: both;
         }
