@@ -1,0 +1,74 @@
+%footer
+  %aside.app-banner
+    .app-banner--pc
+      .app-banner--pc__inner
+        %h2 スマホでかんたんフリマアプリ
+        %p 今すぐ無料ダウンロード!
+        .app-banner--pc__icon
+          = image_tag "icon.png", :width => "68"
+          %ul
+            %li
+              =link_to 'https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8' do
+                = image_tag "app-store.svg"
+            %li{:style => "margin-left: 16px;"}
+              =link_to 'https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja' do
+                = image_tag "google-play.svg"
+      %figure
+        = image_tag "aside1.png", :width => "100%"
+  %footer.footer
+    %nav
+      %li.footer-cell
+        %h2.footer-cell--head メルカリについて
+        %ul
+          %li 会社概要(運営会社)
+          %li プライバシーポリシー
+          %li メルカリ利用規約
+          %li 有償ポイントに関する特約
+          %li あんしんスマホサポート制度に関する利用特約
+          %li コンプライアンスポリシー
+          %li 個人データの安全に管理に係る基本方針
+          %li 特定商取引に関する表記
+          %li 資金決済法に基づく表示
+          %li 法令順守と犯罪防止のために
+          %li 採用情報
+      %li.footer-cell
+        %h2.footer-cell--head メルカリを見る
+        %ul
+          %li カテゴリー一覧
+          %li ブランド一覧
+          %li 出品地域一覧
+          %li 公式ブログ
+          %li 公式Twiter
+          %li 公式Facebook
+      %li.footer-cell
+        %h2.footer-cell--head ヘルプ&amp;ガイド
+        %ul
+          %li メルカリガイド
+          %li メルカリロゴ利用ガイドライン
+          %li お知らせ
+          %li らくらくメルカリ便とは
+          %li ゆうゆうメルカリ便とは
+          %li 大型らくらくメルカリ便とは
+          %li 車体取引ガイド
+          %li 返品・返金ポリシー
+          %li メルカリあんしん・あんぜん宣言!
+          %li 偽ブランド品撲滅への取り組み
+          %li メルカリボックス
+      %li.footer-cell
+        %h2.footer-cell--head 国
+        %ul.footer-cell--lang
+          %li
+            =link_to 'https://www.mercari.com/' do
+              = image_tag "us.png"
+              United States
+          %li
+            =link_to 'https://www.mercari.com/uk/' do
+              = image_tag "uk.png"
+              United Kingdom
+          %li
+            =link_to 'https://www.mercari.com/jp/' do
+              = image_tag "jp.png"
+              日本
+    =link_to '', class:'footer-logo' do
+      = image_tag "logo-white.svg", class: "footer-logo-bottom"
+    %p.footer-copyright ©︎ 2019 Mercari

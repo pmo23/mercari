@@ -1,0 +1,27 @@
+%header.pc-header.visible-pc
+  .pc-header-inner
+    .clearfix
+      %h1.l-left
+        =link_to '' do
+          = image_tag "logo.svg", :height => "36", :width => "134", alt:"mercari"
+      %form.pc-header-inner__form.l-right{:action => ""}
+        %input.input-default{:name => "keyword", :placeholder => "キーワードから探す", :type => "search", :value => ""}/
+        %button#sbtn2{:type => "submit"}
+          = fa_icon 'search', class: 'icon'
+    .pc-header-nav.clearfix
+      %nav.l-left
+        %ul.pc-header-nav__box
+          %li
+            %h2
+              =link_to 'カテゴリーから探す', '', class: 'pc-header-nav__root'
+          %li
+            %h2
+              =link_to 'ブランドから探す', '', class: 'pc-header-nav__root'
+      .l-right
+        %ul.pc-header-nav__login
+          %li
+            %h2
+              =link_to 'ログイン', '', class: 'sp-header-btn button btn-red'
+          %li
+            %h2
+              =link_to '新規会員登録', '', class: 'sp-header-btn button header-signup'
