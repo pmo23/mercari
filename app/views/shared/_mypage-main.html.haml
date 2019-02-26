@@ -1,12 +1,12 @@
-.l-content
-  %section.mypage-user--icon
-    %a
+.mypage-content
+  %section.mypage-content--user--icon
+    =link_to "/" do
       %figure
         =image_tag("member_photo_noimage_thumb.png")
       %h2  ラッタ
       .mypage-number
         %h2  評価 20  出品数 31
-  %section.mypage-tab-container-notification-todo
+  %section.mypage-content--todo
     %ul.mypage-tabs
       %li.active
         %h3  お知らせ
@@ -31,10 +31,11 @@
               %p  １時間前
             %i.fa.fa-angle-right
         %li.mypage-go-list
-          %a.mypage-list  一覧を見る
-  %section.mypage-tab-container
-    %h2.mypage-tab-head  購入した商品
-    %section.mypage-tab-container-notification-todo
+          =link_to "/", class: 'mypage-list' do
+            一覧を見る
+  %section.mypage-content--sold
+    %h2.mypage-content--sold--tab  購入した商品
+    %section.mypage-content--todo
       %ul.mypage-tabs
         %li.active
           %h3  取引中
@@ -51,4 +52,5 @@
                 %p  １時間前
               %i.fa.fa-angle-right
           %li.mypage-go-list
-            %a.mypage-list  一覧を見る
+            =link_to "/", class: 'mypage-list' do
+              一覧を見る
