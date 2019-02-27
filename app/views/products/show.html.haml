@@ -1,0 +1,128 @@
+= render "shared/header"
+= render "shared/nav"
+%section.item-box
+  %h1.item-box__name anello リュック
+  %p.item-box__sub
+    『anello リュック』は、24回の取引実績を持つhihihirohiさんから出品されました。アネロ（リュック/バックパック/レディース）の商品で、北海道から4~7日で発送されます。
+  .item-box__main.clearfix
+    .item-box__main-photo
+      %div
+        = image_tag "m94"
+      .photo
+        = image_tag "m94"
+      .photo
+        = image_tag "m94"
+      .photo
+        = image_tag "m94"
+      .photo
+        = image_tag "m94"
+    %table.item-box__main-detail
+      %tbody
+        %tr
+          %th 出品者
+          %td
+            =link_to "hihihirohi" ,''
+            .face
+              %div
+                = fa_icon 'apple', class: 'fas fa-grin'
+                %span 24
+              %div
+                = fa_icon 'apple', class: 'fa-meh'
+                %span 0
+              %div
+                = fa_icon 'apple', class: 'fa-dizzy'
+                %span 0
+        %tr
+          %th カテゴリー
+          %td
+            =link_to "レディース" ''
+            =link_to ">バッグ" ''
+            =link_to ">リュック/バックパック" ''
+        %tr
+          %th ブランド
+          %td
+            =link_to "アネロ", ''
+        %tr
+          %th 商品の状態
+          %td やや傷や汚れあり
+        %tr
+          %th 配送料の負担
+          %td 送料込み(出品者負担)
+        %tr
+          %th 配送の方法
+          %td ゆうゆうメルカリ便
+        %tr
+          %th 配送元地域
+          %td
+            =link_to "北海道" ''
+        %tr
+          %th 発送日の目安
+          %td 4~7日で発送
+  .item-box__price
+    %span.price ￥1,500
+    %span.tax (税込)
+    %span.shipping 送料込み
+  =link_to "購入画面に進む", '', class: "item-box__buy"
+  .item-box__description
+    %p
+      縦:47cm
+      横:29cm
+      マチ:13cm
+      %br/
+      2年程前に購入し、マザーズバックとして週3回程のペースで使っておりました。
+      目立つ傷や汚れはありませんが、内側には毛玉のような毛羽立ちがあり、使用感があります。
+      %br/
+      出来るだけコンパクトにして、手持ちのもので梱包する予定です。
+      %br/
+      よろしくお願いいたします。
+      %br/
+  .item-box__button.clearfix
+    .item-box__button-left
+      =link_to '' do
+        = fa_icon 'heart'
+        %span いいね!
+        %span 0
+      =link_to '' do
+        = fa_icon 'flag'
+        %span 不適切な商品の報告
+    .item-box__button-right
+      =link_to '' do
+        = fa_icon 'lock'
+        %span あんしん・あんぜんのへの取り組み
+.item-message
+  .item-message__content
+    %ul
+      %li.clearfix
+        =link_to '', class: "message-user" do
+          .message-user__icon
+            = image_tag ""
+          .message-user__name shiraiwa
+        .message-body
+          .message-body__text
+            はじめまして！ 購入検討しております。
+            %br/
+            2枚目の画像、ネイビーに見えないのですが、色褪せですか？？
+            %br/
+            とても綺麗にみえるのですが、金具の不具合、ゴムの伸びはありますか？
+            %br/
+            検印ありますか？
+            %br/
+            質問ばかりで申し訳ありません。
+            %br/
+            お返事お待ちしています。
+            %br/
+          .message-body__icons
+            = fa_icon 'apple', class: "fa-clock"
+            %span 3日前
+.social-media
+  %ul.social-media__box
+    %li
+      =link_to '' do
+        = fa_icon 'facebook', class: "fa-facebook"
+    %li
+      =link_to '' do
+        = fa_icon 'twitter', class: "fa-twitter"
+    %li
+      =link_to '' do
+        = fa_icon 'pinterest', class: "fa-pinterest"
+= render "shared/footer"
