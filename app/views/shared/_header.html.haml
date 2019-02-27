@@ -20,11 +20,11 @@
       .l-right
         %ul.pc-header-nav__login
           - if user_signed_in?
-            %li
+            %li.header-nav__my
               = link_to 'マイページ', "/users/:id"
-            %li
+            %li.header-nav__my
               = link_to 'お知らせ', "/users/:id"
-            %li
+            %li.header-nav__my
               = link_to 'やることリスト', "/users/:id"
           - else
             %li
