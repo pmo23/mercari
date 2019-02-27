@@ -194,7 +194,6 @@
   position: relative;
   &__button{
     font-size: 14px;
-    color: #fff;
     line-height: 50px;
     text-align: center;
     height: 50px;
@@ -205,5 +204,8 @@
     left: 50%;
     transform: translateY(-50%) translateX(-50%);
     -webkit-transform: translateY(-50%) translateX(-50%);
+    a{
+      color: #fff;
+    }
   }
 }
