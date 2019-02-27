@@ -1,0 +1,45 @@
+%body
+  .single
+    %header.single-header
+      %h1.single-header__title
+        =link_to '', class: "single-header__title-link" do
+          = image_tag "logo.svg", width: "185", height: "49", class: "single-header-title-link-img"
+    %main.single-main
+      %section.main-container
+        %h2.main-container__head 商品の情報を入力
+        .main-container__seller
+          %h3
+            出品画像
+            %span.form-require 必須
+          %p 最大10枚までアップロードできます
+          .product-image__upload
+            %pre ドラッグアンドドロップまたはクリックしてファイルをアップロード
+        .main-container__seller
+          %h3
+            商品名
+            %span.form-require 必須
+          %input
+        .main-container__seller
+          %h3
+            商品の説明
+            %span.form-require 必須
+          %textarea
+        .main-container__seller
+          %h3.sell-sub-head 商品の詳細
+          .sell-form-box
+        .main-container__seller
+          %h3.sell-sub-head 配送について
+          %select
+        .main-container__seller
+          %h3 販売価格
+          %input
+        .main-container__seller
+          %p 禁止されている出品、行為を必ずご確認ください。
+          %p またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+          %p また、出品をもちまして加盟店規約に同意したことになります。
+          .main-container__inner-content
+            %button#google-login.btn-default.btn-sns.btn-sns__google
+              出品する
+            %button#google-login.btn-default.btn-sns.btn-sns__google
+              もどる
+  = render "shared/footer2"
