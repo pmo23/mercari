@@ -8,3 +8,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     = yield
+= link_to 'トップページ', root_path
+= link_to 'ユーザー新規登録', new_user_path
+= link_to 'ユーザーマイページ', '/users/:id'
+= link_to 'ログアウト', '/users/:id/logout'
