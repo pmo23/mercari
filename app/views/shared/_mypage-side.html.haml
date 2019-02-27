@@ -2,7 +2,7 @@
   %nav.mypage-side--nav
     %ul.mypage-side--nav__ul
       %li.mypage-side--nav__ul__li
-        =link_to "/" do
+        =link_to user_path do
           %span  マイページ
           %i.fa.fa-angle-right
       %li.mypage-side--nav__ul__li
@@ -98,6 +98,6 @@
           %span  電話番号の確認
           %i.fa.fa-angle-right
       %li.mypage-side--nav__ul__li
-        =link_to "/" do
+        =link_to "/users/:id/logout" do
           %span  ログアウト
           %i.fa.fa-angle-right
