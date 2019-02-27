@@ -1,9 +1,6 @@
 %body
   .single
-    %header.single-header
-      %h1.single-header__title
-        =link_to '', class: "single-header__title-link" do
-          = image_tag "logo.svg", width: "185", height: "49", class: "single-header-title-link-img"
+    =render "shared/header2"
     %main.single-main
       %section.main-container
         %h2.main-container__head 新規会員登録
