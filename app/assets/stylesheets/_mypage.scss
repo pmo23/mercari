@@ -187,3 +187,25 @@
   }
 }
 
+
+.mypage-content--logout{
+  background-color: #fff;
+  height: 180px;
+  position: relative;
+  &__button{
+    font-size: 14px;
+    line-height: 50px;
+    text-align: center;
+    height: 50px;
+    width: 320px;
+    background-color: #ea352d;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    -webkit-transform: translateY(-50%) translateX(-50%);
+    a{
+      color: #fff;
+    }
+  }
+}

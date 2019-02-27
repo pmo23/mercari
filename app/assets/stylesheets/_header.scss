@@ -60,6 +60,15 @@
             }
             &__login{
             margin: 0;
+                .header-nav__my{
+                    width: 120px;
+                    height: 40px;
+                    line-height: 40px;
+                    a{
+                        color: black;
+                        font-size: 14px;
+                    }
+                }
                 li {
                 display: inline-block;
                 margin: 0 0 0 8px;
@@ -87,7 +96,7 @@
                     color: $white;
                     }
                     .header-signup {
-                    display: block;
+                    display: inline-block;
                     border: 1px solid #0099e8;
                     background: $white;
                     color: #0099e8;
