@@ -1,0 +1,21 @@
+.pankuzu {
+  position: relative;
+  border-top: 1px solid #eee;
+  background: #fff;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.1);
+  &-list {
+    width: 1020px;
+    margin: 0 auto;
+    padding: 17px 0 16px;
+    &__item {
+      display: inline-block;
+      font-size: 14px;
+      line-height: 1.2;
+      .fa-angle-right {
+        margin: 0 8px;
+        font-size: 14px;
+        color: #888;
+      }
+    }
+  }
+}
