@@ -15,7 +15,6 @@ a {
 }
 
 .single {
-  // padding: 0 0 300px;
   position: relative;
   background-color: #f5f5f5;
   &-header {
@@ -113,12 +112,8 @@ a {
   }
   &-footer {
     width: 456px;
-    // position: absolute;
     height: auto;
     margin: 50px auto;
-    // right: 0;
-    // bottom: 0;
-    // left: 0;
     z-index: 1;
     padding: 40px 0;
     text-align: center;
