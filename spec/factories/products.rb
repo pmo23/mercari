@@ -1,7 +1,7 @@
 FactoryBot.define do
 
   factory :product do
-    id                     {"1"}
+    id                     {"#{Faker::Number.number(1)}"}
     name                   {"モンベル スペリオダウンジャケット XL"}
     product_description    {"高品質ダウンと超軽量シェル素材を組み合わせ、保温性と軽量性を高次元で両立したジャケットです。"}
     category1              {"メンズ"}
@@ -14,12 +14,12 @@ FactoryBot.define do
     shipping_method        {"未定"}
     ship_from              {"福岡県"}
     shipping_date          {"1~2日で発送"}
-    price                  {"8500"}
-    point                  {"8"}
+    price                  {"#{Faker::Number.number(4)}"}
+    point                  {"#{Faker::Number.number(2)}"}
     on_display             {"true"}
     during_trading         {"false"}
     sold_out               {"false"}
-    created_at             {"2019-02-20 06:41:22"}
-    updated_at             {"2019-02-20 06:41:22"}
+    created_at             {"#{Faker::Date.backward(14)}"}
+    updated_at             {"#{Faker::Date.backward(14)}"}
   end
 end

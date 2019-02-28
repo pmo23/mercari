@@ -5,6 +5,7 @@ describe ProductImage do
 
     context "全ての要素が入っている時" do
       it "登録可能" do
+        product = FactoryBot.create(:product)
         product_image = build(:product_image)
         expect(product_image).to be_valid
       end

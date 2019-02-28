@@ -2,10 +2,10 @@ FactoryBot.define do
 
   factory :product_image do
     product
-    id                     {"1"}
-    product_id             {"1"}
-    product_image          { File.open("#{Rails.root}/spec/fixtures/images/test_image_1.jpg") }
-    created_at             {"2019-02-20 06:41:22"}
-    updated_at             {"2019-02-20 06:41:22"}
+    id                     {"#{Faker::Number.number(1)}"}
+    product_id             {"#{Faker::Number.number(1)}"}
+    product_image          {"#{Faker::Avatar.image}" }
+    created_at             {"#{Faker::Date.backward(14)}"}
+    updated_at             {"#{Faker::Date.backward(14)}"}
   end
 end
