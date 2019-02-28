@@ -12,7 +12,7 @@
             出品画像
             %span.must-icon 必須
           %p 最大10枚までアップロードできます
-          .product-image__upload
+          .main-container__seller--image__upload
             %pre ドラッグアンドドロップまたはクリックしてファイルをアップロード
         .main-container__seller
           %h3
@@ -25,8 +25,8 @@
             %span.must-icon 必須
           %textarea.textarea-default{placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"}
         .main-container__seller
-          %h3.sell-sub-head 商品の詳細
-          .sell-form-box
+          %h3.main-container__seller--sell-sub-head 商品の詳細
+          .main-container__seller--form
             .form-group
               %h3
                 カテゴリー
@@ -39,25 +39,19 @@
                 商品の状態
                 %span.must-icon 必須
               %select.select-default
-                %option{value: 0} ---
-                %option{value: 1} 新品・未使用
-                %option{value: 2} 未使用に近い
-                %option{value: 3} 目立った傷や汚れなし
-                %option{value: 4} やや傷や汚れあり
-                %option{value: 5} 傷や汚れあり
-                %option{value: 6} 全体的に状態が悪い
+                - @condition.each_with_index do |c,index|
+                  %option{value: index}= c.name
         .main-container__seller
-          %h3.sell-sub-head 配送について
-          .sell-form-box
+          %h3.main-container__seller--sell-sub-head 配送について
+          .main-container__seller--form
             .form-group
               %h3
                 配送料の負担
                 %span.must-icon 必須
               %select.select-default
-                %option{value: 0} ---
-                %option{value: 1} 送料込み（出品者負担）
-                %option{value: 2} 着払い（購入者負担）
-          .sell-form-box
+                - @shippingpay.each_with_index do |c,index|
+                  %option{value: index}= c.name
+          .main-container__seller--form
             .form-group
               %h3
                 発送元の地域
@@ -65,26 +59,24 @@
               %select.select-default
                 - @prefecture.each_with_index do |p,index|
                   %option{value: index}= p.name
-          .sell-form-box
+          .main-container__seller--form
             .form-group
               %h3
                 発送までの日数
                 %span.must-icon 必須
               %select.select-default
-                %option{value: 0} ---
-                %option{value: 1} 1~2日で発送
-                %option{value: 2} 2~3日で発送
-                %option{value: 3} 4~7日で発送
+                - @shippingday.each_with_index do |p,index|
+                  %option{value: index}= p.name
         .main-container__seller
-          %h3.sell-sub-head 販売価格(300〜9,999,999)
-          .sell-form-box
-            %ul.sell-price
+          %h3.main-container__seller--sell-sub-head 販売価格(300〜9,999,999)
+          .main-container__seller--form
+            %ul.main-container__seller--form--sell-price
               %li.form-group
                 .clearfix
                   %label.l-left
                     価格
                     %span.form-require.must-icon 必須
-                  .l-right.sell-price-input
+                  .l-right.price-input
                     ￥
                     %input.input-default{placeholder: "例）300"}
               %li.clearfix
