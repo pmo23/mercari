@@ -10,7 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190227043444) do
+ActiveRecord::Schema.define(version: 20190228083744) do
+
+  create_table "product_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "product_id"
+    t.string   "product_image", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["product_id"], name: "index_product_images_on_product_id", using: :btree
+  end
+
+  create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",                              null: false
+    t.text     "product_description", limit: 65535, null: false
+    t.string   "category1",                         null: false
+    t.string   "category2",                         null: false
+    t.string   "category3",                         null: false
+    t.string   "brand",                             null: false
+    t.string   "size"
+    t.string   "condition",                         null: false
+    t.string   "postage",                           null: false
+    t.string   "shipping_method",                   null: false
+    t.string   "ship_from",                         null: false
+    t.string   "shipping_date",                     null: false
+    t.integer  "price",                             null: false
+    t.integer  "point"
+    t.string   "on_display"
+    t.string   "during_trading"
+    t.string   "sold_out"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
@@ -30,4 +60,5 @@ ActiveRecord::Schema.define(version: 20190227043444) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "product_images", "products"
 end
