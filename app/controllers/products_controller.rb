@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
   end
 
   def new
+    @prefecture = Prefecture.all
   end
 
   def show
