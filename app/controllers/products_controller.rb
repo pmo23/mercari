@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
 
   def new
     @prefecture = Prefecture.all
+    @category = Category.all
   end
 
   def show
