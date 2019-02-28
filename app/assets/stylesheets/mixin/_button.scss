@@ -1,4 +1,4 @@
-@mixin hissu(){
+.hissu{
   background-color: #ea352d;
   color: #fff;
   margin: 0 0 0 8px;
@@ -7,3 +7,49 @@
   vertical-align: top;
 }
 
+
+.select-default{
+  position: relative;
+  z-index: 2;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  cursor: pointer;
+  margin: 8px 0;
+  width: 100%;
+}
+
+.input-default{
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+  width: 100%;
+  margin: 10px 0 0;
+}
+
+.textarea-default{
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-height: 104px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 10px 0 0;
+}
+
+.clearfix::after{
+  content: "";
+  display: block;
+  clear: both;
+}

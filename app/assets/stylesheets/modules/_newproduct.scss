@@ -35,11 +35,10 @@
         h3{
           font-size: 16px;
           font-weight: bold;
-          span.form-require{
-            @include hissu();
-          }
+          margin: 0 0 10px;
         }
         p{
+          margin: 0 0 10px;
         }
         .product-image__upload{
           width: 620px;
@@ -55,10 +54,40 @@
           float: left;
         }
         .sell-form-box{
-          background-color: #444;
-          height: 100px;
           width: 400px;
           float: right;
+          .sell-price{
+            margin: 0 0 40px;
+            li{
+              font-size: 16px;
+              font-weight: bold;
+              margin: 0 0 30px;
+              .clearfix{
+                height: 48px;
+                line-height: 48px;
+                .l-right{
+                  input{
+                    margin: 0;
+                  }
+                }
+              }
+              .sell-price-input{
+                width: 50%;
+                text-align: right;
+                float: right;
+                input{
+                  width: 70%;
+                }
+              }
+            }
+          }
+        }
+        .main-container__inner-content{
+          .modoru{
+            background: #aaa;
+            border: 1px solid #aaa;
+            color: #fff;
+          }
         }
       }
     }
