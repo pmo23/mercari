@@ -1,0 +1,97 @@
+%body
+  .single
+    %header.single-header
+      %h1.single-header__title
+        =link_to '', class: "single-header__title-link" do
+          = image_tag "logo.svg", width: "185", height: "49", class: "single-header-title-link-img"
+    %main.single-main
+      %section.main-container
+        %h2.main-container__head 商品の情報を入力
+        .main-container__seller
+          %h3
+            出品画像
+            %span.must-icon 必須
+          %p 最大10枚までアップロードできます
+          .main-container__seller--image__upload
+            %pre ドラッグアンドドロップまたはクリックしてファイルをアップロード
+        .main-container__seller
+          %h3
+            商品名
+            %span.must-icon 必須
+          %input.input-default{placeholder: "商品名（必須40文字まで）"}
+        .main-container__seller
+          %h3
+            商品の説明
+            %span.must-icon 必須
+          %textarea.textarea-default{placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"}
+        .main-container__seller
+          %h3.main-container__seller--sell-sub-head 商品の詳細
+          .main-container__seller--form
+            .form-group
+              %h3
+                カテゴリー
+                %span.must-icon 必須
+              %select.select-default
+                - @category.each_with_index do |c,index|
+                  %option{value: index}= c.name
+            .form-group
+              %h3
+                商品の状態
+                %span.must-icon 必須
+              %select.select-default
+                - @condition.each_with_index do |c,index|
+                  %option{value: index}= c.name
+        .main-container__seller
+          %h3.main-container__seller--sell-sub-head 配送について
+          .main-container__seller--form
+            .form-group
+              %h3
+                配送料の負担
+                %span.must-icon 必須
+              %select.select-default
+                - @shippingpay.each_with_index do |c,index|
+                  %option{value: index}= c.name
+          .main-container__seller--form
+            .form-group
+              %h3
+                発送元の地域
+                %span.must-icon 必須
+              %select.select-default
+                - @prefecture.each_with_index do |p,index|
+                  %option{value: index}= p.name
+          .main-container__seller--form
+            .form-group
+              %h3
+                発送までの日数
+                %span.must-icon 必須
+              %select.select-default
+                - @shippingday.each_with_index do |p,index|
+                  %option{value: index}= p.name
+        .main-container__seller
+          %h3.main-container__seller--sell-sub-head 販売価格(300〜9,999,999)
+          .main-container__seller--form
+            %ul.main-container__seller--form--sell-price
+              %li.form-group
+                .clearfix
+                  %label.l-left
+                    価格
+                    %span.form-require.must-icon 必須
+                  .l-right.price-input
+                    ￥
+                    %input.input-default{placeholder: "例）300"}
+              %li.clearfix
+                .l-left 販売手数料 (10%)
+                .l-right -
+              %li.clearfix
+                .l-left 販売利益
+                .l-right -
+        .main-container__seller
+          %p 禁止されている出品、行為を必ずご確認ください。
+          %p またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+          %p また、出品をもちまして加盟店規約に同意したことになります。
+          .main-container__inner-content
+            %button#google-login.btn-default.btn-sns.btn-sns__google
+              出品する
+            %button#google-login.btn-default.btn-sns.btn-sns__google.back-button
+              もどる
+  = render "shared/footer2"
