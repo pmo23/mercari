@@ -10,19 +10,19 @@
         .main-container__seller
           %h3
             出品画像
-            %span.hissu 必須
+            %span.must-icon 必須
           %p 最大10枚までアップロードできます
           .product-image__upload
             %pre ドラッグアンドドロップまたはクリックしてファイルをアップロード
         .main-container__seller
           %h3
             商品名
-            %span.hissu 必須
+            %span.must-icon 必須
           %input.input-default{placeholder: "商品名（必須40文字まで）"}
         .main-container__seller
           %h3
             商品の説明
-            %span.hissu 必須
+            %span.must-icon 必須
           %textarea.textarea-default{placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"}
         .main-container__seller
           %h3.sell-sub-head 商品の詳細
@@ -30,26 +30,14 @@
             .form-group
               %h3
                 カテゴリー
-                %span.hissu 必須
+                %span.must-icon 必須
               %select.select-default
-                %option{value: 0} ---
-                %option{value: 1} レディース
-                %option{value: 2} メンズ
-                %option{value: 3} ベビー・キッズ
-                %option{value: 4} インテリア・住まい・小物
-                %option{value: 5} 本・音楽・ゲーム
-                %option{value: 6} おもちゃ・ホビー・グッズ
-                %option{value: 7} コスメ・香水・美容
-                %option{value: 8} 家電・スマホ・カメラ
-                %option{value: 9} スポーツ・レジャー
-                %option{value: 10} ハンドメイド
-                %option{value: 11} チケット
-                %option{value: 12} 自動車・オートバイ
-                %option{value: 13} その他
+                - @category.each_with_index do |c,index|
+                  %option{value: index}= c.name
             .form-group
               %h3
                 商品の状態
-                %span.hissu 必須
+                %span.must-icon 必須
               %select.select-default
                 %option{value: 0} ---
                 %option{value: 1} 新品・未使用
@@ -64,7 +52,7 @@
             .form-group
               %h3
                 配送料の負担
-                %span.hissu 必須
+                %span.must-icon 必須
               %select.select-default
                 %option{value: 0} ---
                 %option{value: 1} 送料込み（出品者負担）
@@ -73,7 +61,7 @@
             .form-group
               %h3
                 発送元の地域
-                %span.hissu 必須
+                %span.must-icon 必須
               %select.select-default
                 - @prefecture.each_with_index do |p,index|
                   %option{value: index}= p.name
@@ -81,7 +69,7 @@
             .form-group
               %h3
                 発送までの日数
-                %span.hissu 必須
+                %span.must-icon 必須
               %select.select-default
                 %option{value: 0} ---
                 %option{value: 1} 1~2日で発送
@@ -95,7 +83,7 @@
                 .clearfix
                   %label.l-left
                     価格
-                    %span.form-require.hissu 必須
+                    %span.form-require.must-icon 必須
                   .l-right.sell-price-input
                     ￥
                     %input.input-default{placeholder: "例）300"}
@@ -112,6 +100,6 @@
           .main-container__inner-content
             %button#google-login.btn-default.btn-sns.btn-sns__google
               出品する
-            %button#google-login.btn-default.btn-sns.btn-sns__google.modoru
+            %button#google-login.btn-default.btn-sns.btn-sns__google.back-button
               もどる
   = render "shared/footer2"
