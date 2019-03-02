@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :products
   resources :users
   get '/users/:id/logout', to: 'users#logout'
+  get '/products/test/buy', to: 'products#buy'
 end
