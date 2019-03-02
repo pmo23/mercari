@@ -5,7 +5,7 @@
         =link_to '', class: "single-header__title-link" do
           = image_tag "logo.svg", width: "185", height: "49", class: "single-header-title-link-img"
     %main.single-main
-      = form_for(@product) do |f|
+      = form_for @product do |f|
         %section.main-container
           %h2.main-container__head 商品の情報を入力
           .main-container__seller
@@ -13,6 +13,7 @@
               出品画像
               %span.must-icon 必須
             %p 最大10枚までアップロードできます
+            = f.file_field :image
             .main-container__seller--image__upload
               %pre ドラッグアンドドロップまたはクリックしてファイルをアップロード
           .main-container__seller
