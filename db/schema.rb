@@ -24,22 +24,23 @@ ActiveRecord::Schema.define(version: 20190302124936) do
     t.string   "name",                              null: false
     t.text     "product_description", limit: 65535, null: false
     t.string   "category1",                         null: false
-    t.string   "category2",                         null: false
-    t.string   "category3",                         null: false
-    t.string   "brand",                             null: false
+    t.string   "category2"
+    t.string   "category3"
+    t.string   "brand"
     t.string   "size"
     t.string   "condition",                         null: false
     t.string   "postage",                           null: false
-    t.string   "shipping_method",                   null: false
+    t.string   "shipping_method"
     t.string   "ship_from",                         null: false
     t.string   "shipping_date",                     null: false
     t.integer  "price",                             null: false
     t.integer  "point"
-    t.string   "on_display"
-    t.string   "during_trading"
-    t.string   "sold_out"
+    t.string   "image"
+    t.integer  "sales_condition",                   null: false
+    t.integer  "user_id"
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
+    t.index ["user_id"], name: "index_products_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -63,4 +64,5 @@ ActiveRecord::Schema.define(version: 20190302124936) do
   end
 
   add_foreign_key "product_images", "products"
+  add_foreign_key "products", "users"
 end
