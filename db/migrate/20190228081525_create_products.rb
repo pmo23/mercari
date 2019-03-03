@@ -15,9 +15,9 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.string  :shipping_date,        null: false
       t.integer :price,                null: false
       t.integer :point
-      t.string  :on_display
-      t.string  :during_trading
-      t.string  :sold_out
+      t.string  :image
+      t.integer :sales_condition,      null: false
+      t.references :user,              foreign_key: true
       t.timestamps
     end
   end
