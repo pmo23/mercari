@@ -24,7 +24,7 @@ class User < ApplicationRecord
   private
 
   def self.dummy_email(auth)
-    if auth.provider == "facebook"
+    if auth.provider == "facebook"#facebook時の処理
     "#{auth.uid}-#{auth.provider}@example.com"
     else
     "#{auth.info.email}"
