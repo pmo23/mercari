@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_category
-  before_action :move_to_index, except: [:index, :show]
+  before_action :move_to_signup, except: [:index, :show]
 
   def index
   end
@@ -35,8 +35,8 @@ class ProductsController < ApplicationController
     @shippingday = Shippingday.all
   end
 
-  def move_to_index
-    redirect_to action: :index unless user_signed_in?
+  def move_to_signup
+    redirect_to new_user_session_path unless user_signed_in?
   end
 
 end
