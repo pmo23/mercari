@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
   before_action :move_to_signup, except: [:index, :show]
 
   def index
+    @products = Product.all
   end
 
   def new
@@ -10,6 +11,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @product = Product.find(params[:id])
   end
 
   def create
@@ -19,6 +21,11 @@ class ProductsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    product = Product.find(params[:id])
+    product.destroy if product.user_id == current_user.id
   end
 
   private
