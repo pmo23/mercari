@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   resources :products do
     resources :buys, only: [:new, :create]
   end
-  resources :users
+  resources :users do
+    resources :lists, only: :index
+  end
   get '/users/:id/logout', to: 'users#logout'
   # get '/products/test/buy', to: 'products#buy'
 end
