@@ -3,7 +3,7 @@
     =link_to "/" do
       %figure
         =image_tag("member_photo_noimage_thumb.png")
-      %h2  ラッタ
+      = current_user.nickname
       .mypage-number
         %h2  評価 20  出品数 31
   %section.mypage-content--todo
