@@ -1,27 +1,28 @@
 = render "shared/header"
 = render "shared/nav"
 %section.item-box
-  %h1.item-box__name anello リュック
+  %h1.item-box__name
+    = @product.name
   %p.item-box__sub
     『anello リュック』は、24回の取引実績を持つhihihirohiさんから出品されました。アネロ（リュック/バックパック/レディース）の商品で、北海道から4~7日で発送されます。
   .item-box__main.clearfix
     .item-box__main-photo
       %div
-        = image_tag "m94"
+        = image_tag @product.image
       .photo
-        = image_tag "m94"
+        = image_tag @product.image
       .photo
-        = image_tag "m94"
+        = image_tag @product.image
       .photo
-        = image_tag "m94"
+        = image_tag @product.image
       .photo
-        = image_tag "m94"
+        = image_tag @product.image
     %table.item-box__main-detail
       %tbody
         %tr
           %th 出品者
           %td
-            =link_to "hihihirohi" ,''
+            =link_to @product.user.nickname ,''
             .face
               %div
                 = fa_icon 'apple', class: 'fas fa-grin'
@@ -41,7 +42,7 @@
         %tr
           %th ブランド
           %td
-            =link_to "アネロ", ''
+            =link_to @product.brand, ''
         %tr
           %th 商品の状態
           %td やや傷や汚れあり
@@ -59,23 +60,14 @@
           %th 発送日の目安
           %td 4~7日で発送
   .item-box__price
-    %span.price ￥1,500
+    %span.price
+      = "￥" + @product.price.to_s
     %span.tax (税込)
     %span.shipping 送料込み
   =link_to "購入画面に進む", '', class: "item-box__buy"
   .item-box__description
     %p
-      縦:47cm
-      横:29cm
-      マチ:13cm
-      %br/
-      2年程前に購入し、マザーズバックとして週3回程のペースで使っておりました。
-      目立つ傷や汚れはありませんが、内側には毛玉のような毛羽立ちがあり、使用感があります。
-      %br/
-      出来るだけコンパクトにして、手持ちのもので梱包する予定です。
-      %br/
-      よろしくお願いいたします。
-      %br/
+      = @product.product_description
   .item-box__button.clearfix
     .item-box__button-left
       =link_to '' do
