@@ -27,6 +27,15 @@ describe ProductsController do
     end
   end
 
+  describe '#show' do
+    it "assigns @product" do
+      expect(assigns(:product)).to eq @product
+    end
+
+    it "renders show" do
+      render_template :show
+    end
+  end
 
   describe '#create' do
     let(:params) { { user_id: user.id, product: attributes_for(:product) } }
