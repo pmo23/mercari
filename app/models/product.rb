@@ -1,6 +1,7 @@
 class Product < ApplicationRecord
 
   has_many :product_images, dependent: :destroy
+  belongs_to :user
 
   validates :name, presence: true, length: {maximum: 40}
   validates :product_description, presence: true, length: {maximum: 1000}

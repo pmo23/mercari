@@ -2,9 +2,10 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :omniauthable
-  # validates :nickname, :last_name, :first_name, :last_name_kana, :first_name_kana, :date_of_birth, presence: true
-
+          :recoverable, :rememberable, :validatable, :omniauthable
+   has_many :products
+  validates :nickname, presence: true
+ 
   validates :last_name, format: { with:/\A[ぁ-んァ-ン一-龥]\Z/, message: "名 に数字や特殊文字は使用できません"}, presence: true, unless: :uid?
   validates :first_name, format: { with:/\A[ぁ-んァ-ン一-龥]\Z/, message: "姓 に数字や特殊文字は使用できません"}, presence: true, unless: :uid?
   validates :last_name_kana, format: { with:/\A[ァ-ンー－]+\Z/, message: "名カナ を入力してください"}, presence: true, unless: :uid?
