@@ -2,7 +2,7 @@
   %nav.mypage-side--nav
     %ul.mypage-side--nav__ul
       %li.mypage-side--nav__ul__li
-        =link_to user_path do
+        =link_to "/users/#{current_user.id}" do
           %span  マイページ
           %i.fa.fa-angle-right
       %li.mypage-side--nav__ul__li
@@ -18,19 +18,19 @@
           %span  いいね！一覧
           %i.fa.fa-angle-right
       %li.mypage-side--nav__ul__li
-        =link_to "/" do
+        =link_to new_product_path do
           %span  出品する
           %i.fa.fa-angle-right
       %li.mypage-side--nav__ul__li
-        =link_to "/" do
+        =link_to "/users/#{current_user.id}/lists" do
           %span  出品した商品-出品中
           %i.fa.fa-angle-right
       %li.mypage-side--nav__ul__li
-        =link_to "/" do
+        =link_to "/users/#{current_user.id}/lists" do
           %span  出品した商品-取引中
           %i.fa.fa-angle-right
       %li.mypage-side--nav__ul__li
-        =link_to "/" do
+        =link_to "/users/#{current_user.id}/lists" do
           %span  出品した商品-売却済み
           %i.fa.fa-angle-right
       %li.mypage-side--nav__ul__li
