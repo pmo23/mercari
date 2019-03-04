@@ -10,9 +10,9 @@
               = fa_icon 'envelope', class: 'btn-mail__icon'
               メールアドレスで登録
             %button#facebook-login.btn-default.btn-sns.btn-sns__facebook
+              = link_to "Facebookで登録", user_facebook_omniauth_authorize_path, method:'post'
               = fa_icon 'facebook', class: 'btn-sns__icon-facebook'
-              Facebookで登録
             %button#google-login.btn-default.btn-sns.btn-sns__google
+              = link_to "Googleで登録", user_google_oauth2_omniauth_authorize_path, method:'post'
               = fa_icon 'google', class: 'btn-sns__icon-google'
-              Googleで登録
     = render "shared/footer2"
