@@ -4,41 +4,17 @@
     %h3.text-center
       =link_to 'レディース新着アイテム', ''
     .items-box__content.clearfix
-      %section.items-box
-        =link_to '' do
-          %figure.items-box__photo
-            = image_tag "m24.jpg"
-          .items-box__body
-            %h3.items-box__name リング4号set
-            .items-box__num
-              .items-box__price ¥ 600
-              %p.items-box__tax (税込)
-      %section.items-box
-        =link_to '' do
-          %figure.items-box__photo
-            = image_tag "m24.jpg"
-          .items-box__body
-            %h3.items-box__name リング4号set
-            .items-box__num
-              .items-box__price ¥ 600
-              %p.items-box__tax (税込)
-      %section.items-box
-        =link_to '' do
-          %figure.items-box__photo
-            = image_tag "m24.jpg"
-          .items-box__body
-            %h3.items-box__name リング4号set
-            .items-box__num
-              .items-box__price ¥ 600
-              %p.items-box__tax (税込)
-      %section.items-box
-        =link_to '' do
-          %figure.items-box__photo
-            = image_tag "m24.jpg"
-          .items-box__body
-            %h3.items-box__name リング4号set
-            .items-box__num
-              .items-box__price ¥ 600
-              %p.items-box__tax (税込)
-    .view-all
-      =link_to "すべての商品を見る", ''
+      - @products.each do |product|
+        %section.items-box
+          =link_to product_path(product) do
+            %figure.items-box__photo
+              = image_tag product.image
+            .items-box__body
+              %h3.items-box__name
+                = product.name
+              .items-box__num
+                .items-box__price
+                  = '￥' + product.price.to_s
+                %p.items-box__tax (税込)
+      .view-all
+        =link_to "すべての商品を見る", ''
