@@ -7,6 +7,11 @@ describe User do
       expect(user).to be_valid
     end
 
+    it "is valid with a nickname, uid, provider, email, password, password_confirmation" do
+      user = build(:user)
+      expect(user).to be_valid
+    end
+
     it "is invalid without a nickname" do
       user = build(:user, nickname: nil)
       user.valid?
