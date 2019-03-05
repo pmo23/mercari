@@ -37,6 +37,24 @@ describe ProductsController do
     end
   end
 
+  describe 'DELETE #destroy' do
+    context 'log in' do
+      before do
+        login user
+      end
+      it 'delete the product' do
+        expect do
+          delete :destroy, params: { id: product.id }
+        end.to change(Product, :count).by(1)
+      end
+
+      it 'redirects the :create template' do
+        delete :destroy, params: { id: product.id }
+        expect(response).to redirect_to(root_path)
+      end
+    end
+  end
+
   describe '#create' do
     let(:params) { { user_id: user.id, product: attributes_for(:product) } }
     context 'log in' do

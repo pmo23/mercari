@@ -23,6 +23,13 @@ class ProductsController < ApplicationController
     end
   end
 
+  def destroy
+    product = Product.find(params[:id])
+    product.destroy if product.user_id == current_user.id
+    flash[:notice] = "商品を削除しました"
+    redirect_to root_path
+  end
+
   private
 
   def product_sale_params
