@@ -16,10 +16,8 @@ FactoryBot.define do
     shipping_date          {"1~2日で発送"}
     price                  {"#{Faker::Number.number(4)}"}
     point                  {"#{Faker::Number.number(2)}"}
-    on_display             {"true"}
-    during_trading         {"false"}
-    sold_out               {"false"}
     created_at             {"#{Faker::Date.backward(14)}"}
     updated_at             {"#{Faker::Date.backward(14)}"}
+    sales_condition        {"#{Faker::Number.number(3)}"}
   end
 end
