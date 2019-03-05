@@ -30,10 +30,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     token = params[:"payjp-token"]
-    # session[:number] = params[:session][:number]
-    # session[:month] = params[:session][:month]
-    # session[:year] = params[:session][:year]
-    # session[:secret] = params[:session][:secret]
 
     @user = User.new(
       nickname: session[:nickname],
