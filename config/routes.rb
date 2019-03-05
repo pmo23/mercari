@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
   resources :users do
     resources :lists, only: :index
+    resources :cards, only: [:index, :new, :create]
   end
   get '/users/:id/logout', to: 'users#logout'
   # get '/products/test/buy', to: 'products#buy'

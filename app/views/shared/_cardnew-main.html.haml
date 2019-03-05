@@ -1,0 +1,58 @@
+.cardnew-content
+  %section.cardnew-chapter-container
+    %h2.cardnew-chapter-head
+      クレジットカード情報入力
+    .cardnew-content-inner
+      = form_for @user do |f|
+        %section
+          .cardnew-single-content
+            .form-group
+              %label カード番号
+              %span.must-icon 必須
+              = f.text_field :nickname,class: 'input-default',placeholder: "半角数字のみ"
+              %ul#card-no-error-wrapper.has-error-text
+              %ul.signup-card-list
+                %li
+                  = image_tag "visa.svg"
+                %li
+                  = image_tag "master-card.svg"
+                %li
+                  = image_tag "saison-card.svg"
+                %li
+                  = image_tag "jcb.svg"
+                %li
+                  = image_tag "american_express.svg"
+                %li
+                  = image_tag "dinersclub.svg"
+                %li
+                  = image_tag "discover.svg"
+            .form-group.signup-form-expire
+              %label 有効期限
+              %span.must-icon 必須
+              %br
+              .select-wrap
+                / .select#payment_card_expire_mm.select-default
+                = f.collection_select :nickname, Month.all, :id, :name, {prompt: "---"},class: "select-default"
+              %span 月
+              .ul#expire-mm-error-wrapper.has-error-text
+                / .select-wrap
+              .select-wrap
+                / .select#payment_card_expire_yy.select-default
+                = f.collection_select :nickname, Year.all, :id, :name, {prompt: "---"},class: "select-default"
+              %span 年
+              .ul#expire-yy-error-wrapper.has-error-text
+            .form-group.security-code-form
+              %label セキュリティコード
+              %span.must-icon 必須
+              %br
+                / .select#payment_card_expire_mm.select-default
+                = f.text_field :nickname,class: 'input-default',placeholder: "カード背面4桁もしくは3桁の番号"
+              %ul#security-code-error-wrapper.has-error-text
+              .signup-seqcode
+                .signup-seqcode-text
+                  %span.form-question
+                    = fa_icon 'question-circl' , class: "icon-question"
+                    カード裏面の番号とは？
+                .signup-seqcode-info
+                %button#google-login.btn-default.btn-sns.btn-sns__google
+                  追加する
