@@ -1,0 +1,145 @@
+.cardnew{
+  position: relative;
+  background-color: #f5f5f5;
+  height: 1500px;
+  &-body{
+    margin: 40px auto 0;
+    width:1020px;
+    .mypage-side{
+      float:left;
+      width:280px;
+      margin:0 40px 0 0;
+      &--nav{
+        &__ul{
+          &__li:hover{
+            background-color:#eee;
+            i.fa{
+              color:#000;
+            }
+          }
+          &__li{
+            background-color:#fff;
+            border:0;
+            border-top:1px solid #eee;
+            width:280px;
+            height:50px;
+            a{
+              font-size: 16px;
+              position: relative;
+              display: block;
+              min-height: 48px;
+              padding: 16px;
+              color: #333;
+              text-decoration: none;
+              i.fa{
+                float:right;
+                color: #ccc;
+              }
+            }
+          }
+        }
+        h3{
+          margin: 40px 4% 0;
+          font-size: 16px;
+        }
+      }
+    }
+    .cardnew-content{
+      float: right;
+      width: 700px;
+      height: 90%;
+      &-inner{
+        padding: 64px;
+        border-top: 1px solid #f5f5f5;
+        section{
+          .cardnew-single-content{
+            max-width: 320px;
+            margin: 0 auto;
+            .form-group{
+              font-size: 14px;
+              font-weight: 600;
+              label{
+                display: inline-block;
+              }
+              span{
+                margin: 0 8px;
+              }
+              .select-wrap{
+                display: inline-block;
+                width: 35%;
+                margin: 8px 0 0;
+                position: relative;
+                .select-default{
+                  margin: 0;
+                  font-weight:normal;
+                }
+              }
+              ul{
+              }
+              .signup-seqcode{
+                &-text{
+                  text-align: right;
+                  color: #0099e8;
+                  font-weight:normal;
+                  span{
+                    text-decoration: none;
+                    .icon-question{
+                      display: inline-block;
+                    }
+                  }
+                }
+                &-info{
+                }
+                button{
+                  display: block;
+                  width: 100%;
+                  line-height: 48px;
+                  font-size: 14px;
+                  background: #ea352d;
+                  border: 1px solid #ea352d;
+                  color: #fff;
+                  margin: 40px 0 0;
+                }
+              }
+            }
+            .input-default{
+              margin: 8px 0 0;
+              width: 100%;
+              font-weight:normal;
+            }
+            ul{
+              margin: 8px 0 0;
+              li{
+                display: inline-block;
+                margin: 0 0 0 8px;
+                img{
+                  width: auto;
+                  max-height: 20px;
+                  vertical-align: middle;
+                }
+              }
+            }
+            .signup-form-expire{
+              margin: 40px 0 0;
+            }
+            .security-code-form{
+              margin: 40px 0 0;
+            }
+          }
+        }
+      }
+    }
+    .cardnew-chapter-container{
+      margin: 0;
+      background: #fff;
+      h2{
+        font-size: 24px;
+        padding: 8px 24px;
+        line-height: 1.4;
+        border-bottom: 1px solid #f5f5f5;
+        text-align: center;
+        font-weight: bold;
+      }
+    }
+  }
+}
