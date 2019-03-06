@@ -209,3 +209,25 @@
     }
   }
 }
+ .mypage-content--confirmation{
+  background-color: #fff;
+  &__title{
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 1px solid #f5f5f5;
+    padding: 20px;
+  }
+  &__form {
+    padding: 40px;
+    span {
+    background-color: $light_gray;
+    }
+    .signup-form {
+    max-width: none;
+    }
+    .text-right{
+      text-align: right;
+      color: #0098e8;
+    }
+  }
+ }
