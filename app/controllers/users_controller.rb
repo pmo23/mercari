@@ -10,6 +10,9 @@ class UsersController < ApplicationController
   def logout
   end
 
+  def confirmation
+  end
+
   private
 
   def move_to_index

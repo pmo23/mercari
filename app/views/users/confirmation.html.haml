@@ -1,0 +1,55 @@
+= render "shared/header"
+%main.mypage
+  .mypage-body
+    = render "shared/mypage-side"
+    .mypage-content
+      .mypage-content--confirmation
+        %h2.mypage-content--confirmation__title
+          本人情報の登録
+        .mypage-content--confirmation__form
+          .signup-form__group
+            %p お客様の本人情報をご確認ください。
+            %p 登録されたお名前、生年月日を変更する場合、本人確認書類の提出が必要になります。
+            %p
+              = link_to "本人確認書類のアップロードについて>", "", class: "text-right"
+          .signup-form__group
+            %label お名前
+            %p
+              = current_user.last_name + current_user.first_name
+          .signup-form__group
+            %label お名前カナ
+            %p
+              = current_user.last_name_kana + current_user.first_name_kana
+          .signup-form__group
+            %label 生年月日
+            %p
+              = current_user.date_of_birth
+          = form_for(:resource, url: "", method: :get) do |f|
+            .signup-form__group
+              %label 郵便番号
+              %span 任意
+              = f.text_field :zip_code, autofocus: true, autocomplete: "zip_code", placeholder: "例) 123-4567", class: "signup-form__group-inner"
+            .signup-form__group
+              %label 都道府県
+              %span 任意
+              = f.collection_select :prefecture, Prefecture.all, :id, :name, {prompt: "---"},class: "select-default signup-form__group-inner"
+            .signup-form__group
+              %label 市区町村
+              %span 任意
+              = f.text_field :city, autofocus: true, autocomplete: "city", placeholder: "例) 横浜市緑区", class: "signup-form__group-inner"
+            .signup-form__group
+              %label 番地
+              %span 任意
+              = f.text_field :address_line1, autofocus: true, autocomplete: "address_line1", placeholder: "例) 青山1-1-1", class: "signup-form__group-inner"
+            .signup-form__group
+              %label 建物名
+              %span 任意
+              = f.text_field :address_line2, autofocus: true, autocomplete: "address_line2", placeholder: "例) 柳ビル103", class: "signup-form__group-inner"
+            .signup-form
+              .actions
+                = f.submit "登録する", class: "btn-red btn-default"
+            .signup-form__group
+              %p
+                = link_to "本人情報の登録について>", "https://www.mercari.com/jp/help_center/article/423/", target: "_blank", class: "text-right"
+= render "shared/footer"
+= render "shared/sell-btn"
