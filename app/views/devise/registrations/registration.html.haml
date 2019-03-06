@@ -6,10 +6,7 @@
     %ol.clearfix
       %li.active
         会員情報
-        .status
-      %li
-        電話番号認証
-        .status
+        .status__first
       %li
         お届け先住所入力
         .status
@@ -18,14 +15,14 @@
         .status
       %li
         完了
-        .status
+        .status__last
 %main.single-main
   %section.main-container
     %h2.main-container__head
       会員情報を入力
     .main-container__inner
-      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-        = render "devise/shared/error_messages", resource: resource
+      = form_for(:session, url: signup_address_path , html: { id:"form", method: :post}) do |f|
+        / = render "devise/shared/error_messages", resource: resource
         .signup-form
           .signup-form__group
             %label ニックネーム
