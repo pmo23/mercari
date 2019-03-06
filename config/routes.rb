@@ -33,5 +33,6 @@ Rails.application.routes.draw do
     resources :cards, only: [:index, :new, :create]
   end
   get '/users/:id/logout', to: 'users#logout'
+  get '/users/:id/confirmation', to: 'users#confirmation'
   # get '/products/test/buy', to: 'products#buy'
 end
