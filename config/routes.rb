@@ -29,10 +29,12 @@ Rails.application.routes.draw do
     resources :buys, only: [:new, :create]
   end
   resources :users do
+    member do
+      get 'logout'
+      get 'confirmation'
+    end
     resources :lists, only: :index
     resources :cards, only: [:index, :new, :create]
   end
-  get '/users/:id/logout', to: 'users#logout'
-  get '/users/:id/confirmation', to: 'users#confirmation'
   # get '/products/test/buy', to: 'products#buy'
 end
