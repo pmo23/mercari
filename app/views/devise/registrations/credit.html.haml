@@ -1,0 +1,26 @@
+%header.signup-header
+  %h1.signup-header__logo
+    = link_to "/" do
+      = image_tag "logo.svg"
+  %nav.signup-header__nav
+    %ol.clearfix
+      %li
+        会員情報
+        .status__first
+      %li
+        お届け先住所入力
+        .status
+      %li.active
+        支払い方法
+        .status
+      %li
+        完了
+        .status__last
+%main.single-main
+  %section.main-container
+    %h2.main-container__head
+      支払い方法
+    .main-container__inner
+      %form{:action => "/signup/completed", :method => "post"}
+        %script.payjp-button{"data-key" => "pk_test_00569e8bdcb1621b80501c4b", "data-submit-text" => "登録", "data-text" => "カードの登録", :src => "https://checkout.pay.jp/", :type => "text/javascript"}
+= render "/shared/footer2"
