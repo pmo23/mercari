@@ -1,0 +1,88 @@
+%body
+  .single
+    %header.single-header
+      %h1.single-header__title
+        =link_to '', class: "single-header__title-link" do
+          = image_tag "logo.svg", width: "185", height: "49", class: "single-header-title-link-img"
+    %main.single-main
+      = form_for @product do |f|
+        %section.main-container
+          %h2.main-container__head 商品の情報を入力
+          .main-container__seller
+            %h3
+              出品画像
+              %span.must-icon 必須
+            %p 最大10枚までアップロードできます
+            = f.file_field :image
+            .main-container__seller--image__upload
+              %pre ドラッグアンドドロップまたはクリックしてファイルをアップロード
+          .main-container__seller
+            %h3
+              商品名
+              %span.must-icon 必須
+            = f.text_field :name, class: 'input-default',placeholder: "商品名（必須40文字まで）"
+          .main-container__seller
+            %h3
+              商品の説明
+              %span.must-icon 必須
+            = f.text_area :product_description,class: 'textarea-default',placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'
+          .main-container__seller
+            %h3.main-container__seller--sell-sub-head 商品の詳細
+            .main-container__seller--form
+              .form-group
+                %h3
+                  カテゴリー
+                  %span.must-icon 必須
+                = f.collection_select :category1, Category.all, :id, :name, {prompt: "---"},class: "select-default"
+              .form-group
+                %h3
+                  商品の状態
+                  %span.must-icon 必須
+                = f.collection_select :condition, Condition.all, :id, :name, {prompt: "---"},class: "select-default"
+          .main-container__seller
+            %h3.main-container__seller--sell-sub-head 配送について
+            .main-container__seller--form
+              .form-group
+                %h3
+                  配送料の負担
+                  %span.must-icon 必須
+                = f.collection_select :postage, Shippingpay.all, :id, :name, {prompt: "---"},class: "select-default"
+            .main-container__seller--form
+              .form-group
+                %h3
+                  発送元の地域
+                  %span.must-icon 必須
+                = f.collection_select :ship_from, Prefecture.all, :id, :name, {prompt: "---"},class: "select-default"
+            .main-container__seller--form
+              .form-group
+                %h3
+                  発送までの日数
+                  %span.must-icon 必須
+                = f.collection_select :shipping_date, Shippingday.all, :id, :name, {prompt: "---"},class: "select-default"
+          .main-container__seller
+            %h3.main-container__seller--sell-sub-head 販売価格(300〜9,999,999)
+            .main-container__seller--form
+              %ul.main-container__seller--form--sell-price
+                %li.form-group
+                  .clearfix
+                    %label.l-left
+                      価格
+                      %span.form-require.must-icon 必須
+                    .l-right.price-input
+                      ￥
+                      = f.text_field :price, class: 'input-default',placeholder: "例）300"
+                %li.clearfix
+                  .l-left 販売手数料 (10%)
+                  .l-right -
+                %li.clearfix
+                  .l-left 販売利益
+                  .l-right -
+          .main-container__seller
+            %p 禁止されている出品、行為を必ずご確認ください。
+            %p またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+            %p また、出品をもちまして加盟店規約に同意したことになります。
+            .main-container__inner-content
+              = f.submit '変更する',class: 'btn-default btn-sns btn-sns__google'
+              %button#google-login.btn-default.btn-sns.btn-sns__google.back-button
+                = link_to "もどる", product_path, class: 'back-button'
+  = render "shared/footer2"

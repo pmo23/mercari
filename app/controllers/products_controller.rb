@@ -23,11 +23,23 @@ class ProductsController < ApplicationController
     end
   end
 
+  def edit
+    @product = Product.find(params[:id])
+  end
+
+  def update
+  product = Product.find(params[:id])
+  if product.user_id == current_user.id
+    product.update(product_sale_params)
+    redirect_to product_path
+  end
+
   def destroy
     product = Product.find(params[:id])
     product.destroy if product.user_id == current_user.id
     flash[:notice] = "商品を削除しました"
     redirect_to root_path
+    end
   end
 
   private
