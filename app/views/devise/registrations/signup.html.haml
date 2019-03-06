@@ -6,7 +6,7 @@
         %h2.main-container__head 新規会員登録
         .main-container__inner
           .main-container__inner-content
-            =link_to '', class: "btn-default btn-mail" do
+            =link_to signup_registration_path, class: "btn-default btn-mail" do
               = fa_icon 'envelope', class: 'btn-mail__icon'
               メールアドレスで登録
             %button#facebook-login.btn-default.btn-sns.btn-sns__facebook
