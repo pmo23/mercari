@@ -36,29 +36,29 @@
         %tr
           %th カテゴリー
           %td
-            =link_to "レディース" ''
-            =link_to ">バッグ" ''
-            =link_to ">リュック/バックパック" ''
+            =link_to "#{Category.data[@product.category1.to_i].fetch(:name)}" ''
+            =link_to ">#{Category.data[@product.category2.to_i].fetch(:name)}" ''
+            =link_to ">#{Category.data[@product.category3.to_i].fetch(:name)}" ''
         %tr
           %th ブランド
           %td
             =link_to @product.brand, ''
         %tr
           %th 商品の状態
-          %td #{Condition.data[@product.sales_condition].fetch(:name)}
+          %td #{Condition.data[@product.condition.to_i].fetch(:name)}
         %tr
           %th 配送料の負担
-          %td #{Shippingpay.data[@product.sales_condition].fetch(:name)}
+          %td #{Shippingpay.data[@product.postage.to_i].fetch(:name)}
         %tr
           %th 配送の方法
           %td #{@product.shipping_method}
         %tr
           %th 配送元地域
           %td
-            =link_to "#{Prefecture.data[@product.sales_condition].fetch(:name)}" ''
+            =link_to "#{Prefecture.data[@product.ship_from.to_i].fetch(:name)}" ''
         %tr
           %th 発送日の目安
-          %td #{Shippingday.data[@product.sales_condition].fetch(:name)}
+          %td #{Shippingday.data[@product.shipping_date.to_i].fetch(:name)}
   .item-box__price
     %span.price
       = "￥" + number_with_delimiter(@product.price.to_s)
