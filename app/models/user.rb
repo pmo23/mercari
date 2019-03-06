@@ -3,7 +3,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
           :recoverable, :rememberable, :validatable, :omniauthable
-   has_many :products
+  has_many :products
+  has_one :address, dependent: :destroy
+  has_one :credit, dependent: :destroy
   validates :nickname, presence: true
 
   validates :last_name, format: { with:/\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/, message: "名 に数字や特殊文字は使用できません"}, presence: true, unless: :uid?

@@ -23,7 +23,7 @@
     .active {
       color: #ea352d;
       font-weight: 600;
-      .status {
+      .status, .status__first, .status__last {
         background: #ea352d;
       }
     }
@@ -34,14 +34,25 @@
       z-index: 1;
       display: inline-block;
       margin: 0 40px 0 0;
-      .status {
+      .status, .status__first, .status__last {
         width: 12px;
         height: 12px;
         margin: 8px auto 0;
         background: #ccc;
         border-radius: 50%;
       }
-      .status::after {
+      .status__last::after {
+        right: 50%;
+        position: absolute;
+        bottom: 5px;
+        z-index: -1;
+        display: block;
+        content: '';
+        width: 100%;
+        height: 2px;
+        background: #ccc;
+      }
+      .status__first::before {
         left: 50%;
         position: absolute;
         bottom: 5px;
@@ -52,8 +63,7 @@
         height: 2px;
         background: #ccc;
       }
-      .status::before {
-        right: 50%;
+      .status::after, .status::before{
         position: absolute;
         bottom: 5px;
         z-index: -1;
@@ -62,6 +72,12 @@
         width: 100%;
         height: 2px;
         background: #ccc;
+      }
+      .status::after {
+        right: 50%;
+      }
+      .status::before {
+        left: 50%;
       }
     }
   }
