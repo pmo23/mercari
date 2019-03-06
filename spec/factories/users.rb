@@ -1,6 +1,9 @@
 FactoryBot.define do
 
   factory :user do
+    id                    {"1"}
+    created_at            {"20180202"}
+    updated_at            {"20180202"}
     nickname              {"コラッタ"}
     last_name             {"こら"}
     first_name            {"った"}
@@ -10,6 +13,8 @@ FactoryBot.define do
     email                 {"kkk@gmail.com"}
     password              {"00000000"}
     password_confirmation {"00000000"}
+    provider              {"google"}
+    uid                   {"0000000000000000"}
   end
 
 end

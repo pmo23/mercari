@@ -1,0 +1,20 @@
+.cardindex-content
+  %section.cardindex-chapter-container
+    %h2.cardindex-chapter-head
+      支払い方法
+    .cardindex-content-inner
+      %section
+        .cardindex-single-content
+          %h3.cardindex-chapter-sub-head
+            クレジットカード一覧
+        .ul.settings-payment-list
+      %section.setting-add-card
+        .cardindex-single-content
+          %button#google-login.btn-default.btn-sns.btn-sns__google
+            = fa_icon 'credit-card lg' , class: "icon-card"
+            クレジットカードを追加する
+      .settings-not-regist
+        = link_to '', class: "hoge" do
+          %span
+            支払い方法について
+            = fa_icon 'chevron-right ' , class: "icon-right"
