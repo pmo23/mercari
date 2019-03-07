@@ -32,6 +32,7 @@ Rails.application.routes.draw do
     member do
       get 'logout'
       get 'confirmation'
+      get 'profile'
     end
     resources :lists, only: :index
     resources :cards, only: [:index, :new, :create]
