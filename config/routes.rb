@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     :registrations      => "users/registrations",
     :passwords          => "users/passwords",
     :omniauth_callbacks =>  "users/omniauth_callbacks",
-  }
+  },
   skip: [:sessions, :registrations]
   as :user do
     #ログイン
