@@ -1,0 +1,22 @@
+= render "shared/header"
+%main.mypage
+  .mypage-body
+    = render "shared/mypage-side"
+    .mypage-content
+      .mypage-content--confirmation
+        = form_for(:resource, url: "", method: :get) do |f|
+          %h2.mypage-content--confirmation__title
+            プロフィール
+          %section.mypage-content--user--icon
+            =link_to "" do
+              %figure
+                =image_tag("member_photo_noimage_thumb.png")
+                = f.text_field :nickname, autofocus: true, autocomplete: "nickname", style: "height: 40px;width: 200px;"
+          .mypage-content--confirmation__form
+            .signup-form__group
+              = f.text_area :zip_code, autofocus: true, autocomplete: "zip_code", class: "signup-form__group-inner", style: "height: 300px;"
+            .signup-form
+              .actions
+                = f.submit "変更する", class: "btn-red btn-default"
+= render "shared/footer"
+= render "shared/sell-btn"
