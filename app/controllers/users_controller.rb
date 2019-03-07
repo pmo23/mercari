@@ -13,6 +13,9 @@ class UsersController < ApplicationController
   def confirmation
   end
 
+  def profile
+  end
+
   private
 
   def move_to_index
