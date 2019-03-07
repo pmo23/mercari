@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     :sessions           => "users/sessions",
     :registrations      => "users/registrations",
     :passwords          => "users/passwords",
-    :omniauth_callbacks =>  "users/omniauth_callbacks"
+    :omniauth_callbacks =>  "users/omniauth_callbacks",
   },
   skip: [:sessions, :registrations]
   as :user do
@@ -32,6 +32,7 @@ Rails.application.routes.draw do
     member do
       get 'logout'
       get 'confirmation'
+      get 'profile'
     end
     resources :lists, only: :index
     resources :cards, only: [:index, :new, :create]
