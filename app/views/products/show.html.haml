@@ -4,7 +4,7 @@
   %h1.item-box__name
     = @product.name
   %p.item-box__sub
-    『anello リュック』は、24回の取引実績を持つhihihirohiさんから出品されました。アネロ（リュック/バックパック/レディース）の商品で、北海道から4~7日で発送されます。
+    = "『#{@product.name}』は、24回の取引実績を持つ#{@product.user.nickname}さんから出品されました。アネロ（リュック/バックパック/レディース）の商品で、#{Prefecture.data[@product.sales_condition].fetch(:name)}から#{Shippingday.data[@product.sales_condition].fetch(:name)}で発送されます。"
   .item-box__main.clearfix
     .item-box__main-photo
       %div
@@ -36,35 +36,37 @@
         %tr
           %th カテゴリー
           %td
-            =link_to "レディース" ''
-            =link_to ">バッグ" ''
-            =link_to ">リュック/バックパック" ''
+            =link_to "#{Category.data[@product.category1.to_i].fetch(:name)}" ''
+            =link_to ">#{Category.data[@product.category2.to_i].fetch(:name)}" ''
+            =link_to ">#{Category.data[@product.category3.to_i].fetch(:name)}" ''
         %tr
           %th ブランド
           %td
             =link_to @product.brand, ''
         %tr
           %th 商品の状態
-          %td やや傷や汚れあり
+          %td #{Condition.data[@product.condition.to_i].fetch(:name)}
         %tr
           %th 配送料の負担
-          %td 送料込み(出品者負担)
+          %td #{Shippingpay.data[@product.postage.to_i].fetch(:name)}
         %tr
           %th 配送の方法
-          %td ゆうゆうメルカリ便
+          %td #{@product.shipping_method}
         %tr
           %th 配送元地域
           %td
-            =link_to "北海道" ''
+            =link_to "#{Prefecture.data[@product.ship_from.to_i].fetch(:name)}" ''
         %tr
           %th 発送日の目安
-          %td 4~7日で発送
+          %td #{Shippingday.data[@product.shipping_date.to_i].fetch(:name)}
   .item-box__price
     %span.price
-      = "￥" + @product.price.to_s
+      = "￥" + number_with_delimiter(@product.price.to_s)
     %span.tax (税込)
     %span.shipping 送料込み
   - if user_signed_in? && current_user.id == @product.user_id
+    =link_to 'この商品を編集する', edit_product_path , method: :get,class: "item-box__buy"
+
     =link_to 'この商品を削除する', product_path , method: :delete,class: "item-box__buy", data: { confirm: "#{@product.name}を削除しますか？" }
   - else
     =link_to "購入画面に進む", '', class: "item-box__buy"
