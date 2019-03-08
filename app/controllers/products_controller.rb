@@ -39,8 +39,9 @@ class ProductsController < ApplicationController
     product.destroy if product.user_id == current_user.id
     flash[:notice] = "商品を削除しました"
     redirect_to root_path
-    end
   end
+
+end
 
   private
 
