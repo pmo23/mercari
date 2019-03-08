@@ -2,8 +2,8 @@ FactoryBot.define do
 
   factory :product do
     id                     {"#{Faker::Number.number(1)}"}
-    name                   {"モンベル スペリオダウンジャケット XL"}
-    product_description    {"高品質ダウンと超軽量シェル素材を組み合わせ、保温性と軽量性を高次元で両立したジャケットです。"}
+    name                   {"モンベル スペリオダウンジャケット"}
+    product_description    {"保温性と軽量性を高次元で両立したジャケット"}
     category1              {"メンズ"}
     category2              {"ジャケット/アウター"}
     category3              {"ダウンジャケット"}
