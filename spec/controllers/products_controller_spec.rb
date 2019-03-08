@@ -96,4 +96,39 @@ describe ProductsController do
       end
     end
   end
+
+  describe 'GET #edit' do
+    let(:product) { create(:product) }
+    before { get :edit, params: { id: product.id } ,session: {} }
+
+    it 'assigns the requested product to @product' do
+      expect(assigns(:product)).to eq @product
+    end
+
+    # it 'renders the :edit template' do
+    #   expect(response).to render_template :edit
+    # end
+  end
+
+  describe 'PATCH #update' do
+    let(:product) { create(:product) }
+
+    it "locates the requersted @product" do
+     patch :update, params: {id: product.id}, product: attributes_for(:product)
+      expect(assigns(:product)).to eq @product
+    end
+
+    it "changes @product's attributes" do
+      patch :update, params:{id: product.id}, product: attributes_for(:product, name: 'モンベル スペリオダウンジャケット', product_description: '保温性と軽量性を高次元で両立したジャケット')
+      product.reload
+      expect(product.name).to eq("モンベル スペリオダウンジャケット")
+      expect(product.product_description).to eq("保温性と軽量性を高次元で両立したジャケット")
+    end
+
+    # it "redirects to products_path" do
+    #   patch :update, params:{id: product.id}, product: attributes_for(:product)
+    #   expect(response).to redirect_to products_path
+    # end
+  end
+
 end
