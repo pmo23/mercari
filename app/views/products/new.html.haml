@@ -84,5 +84,6 @@
             .main-container__inner-content
               = f.submit '出品する',class: 'btn-default btn-sns btn-sns__google'
               %button#google-login.btn-default.btn-sns.btn-sns__google.back-button
-                もどる
+                =link_to "/" do
+                  %span もどる
   = render "shared/footer2"

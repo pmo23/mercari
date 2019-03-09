@@ -42,11 +42,11 @@
             %h3.buy-user-info
               配送先
             %adress.buy-user-info-text
-              〒060-0000
+              = "〒" + "#{@address.zip_code}"
               %br
-              北海道 札幌市中央区1
+              #{@address.city}
               %br
-              test_user
+              #{current_user.nickname}
               %br
             %p.buy-user-info-text
               =link_to '' , class: "buy-user-info-fix" do
@@ -62,7 +62,7 @@
               %br
             %figure
             %p.buy-user-info-text
-              =link_to '' , class: "buy-user-info-fix" do
+              =link_to user_cards_path(current_user) , class: "buy-user-info-fix" do
                 %span 変更する >
 
   = render "shared/footer2"

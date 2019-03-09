@@ -70,7 +70,7 @@
     %h3  設定
     %ul.mypage-side--nav__ul
       %li.mypage-side--nav__ul__li
-        =link_to profile_user_path do
+        =link_to "/users/:id/profile" do
           %span  プロフィール
           %i.fa.fa-angle-right
       %li.mypage-side--nav__ul__li
@@ -78,7 +78,7 @@
           %span  発送元・お届け先住所変更
           %i.fa.fa-angle-right
       %li.mypage-side--nav__ul__li
-        =link_to "/" do
+        =link_to user_cards_path(current_user) do
           %span  支払方法
           %i.fa.fa-angle-right
       %li.mypage-side--nav__ul__li
@@ -86,7 +86,7 @@
           %span  メール/パスワード
           %i.fa.fa-angle-right
       %li.mypage-side--nav__ul__li
-        =link_to confirmation_user_path do
+        =link_to "/users/:id/confirmation" do
           %span  本人情報
           %i.fa.fa-angle-right
       %li.mypage-side--nav__ul__li
