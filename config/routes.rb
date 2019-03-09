@@ -37,5 +37,6 @@ Rails.application.routes.draw do
     resources :lists, only: :index
     resources :cards, only: [:index, :new, :create]
   end
-  # get '/products/test/buy', to: 'products#buy'
+  get '/users/:id/profile', to: 'users#plofile'
+  get '/users/:id/confirmation', to: 'users#confirmation'
 end
