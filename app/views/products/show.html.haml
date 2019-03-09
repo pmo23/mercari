@@ -69,7 +69,7 @@
 
     =link_to 'この商品を削除する', product_path , method: :delete,class: "item-box__buy", data: { confirm: "#{@product.name}を削除しますか？" }
   - else
-    =link_to "購入画面に進む", '', class: "item-box__buy"
+    =link_to "購入画面に進む", new_product_buy_path(@product) ,method: :get, class: "item-box__buy"
   .item-box__description
     %p
       = @product.product_description
