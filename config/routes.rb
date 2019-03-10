@@ -26,7 +26,11 @@ Rails.application.routes.draw do
   # end
   root "products#index"
   resources :products do
-    resources :buys, only: [:new, :create]
+    resources :buys, only: [:new, :create] do
+      collection do
+        post 'pay'
+      end
+    end
   end
   resources :users do
     member do
@@ -39,4 +43,5 @@ Rails.application.routes.draw do
   end
   get '/users/:id/profile', to: 'users#plofile'
   get '/users/:id/confirmation', to: 'users#confirmation'
+  # post 'products/:product_id/buys/new', to: 'buys#pay'
 end
