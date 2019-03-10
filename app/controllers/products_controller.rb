@@ -27,9 +27,10 @@ class ProductsController < ApplicationController
   end
 
   def update
-  if @product.user_id == current_user.id
-    @product.update(product_sale_params)
-    redirect_to product_path
+    if @product.user_id == current_user.id
+      @product.update(product_sale_params)
+      redirect_to product_path
+    end
   end
 
   def destroy
@@ -38,7 +39,6 @@ class ProductsController < ApplicationController
     redirect_to root_path
   end
 
-end
 
   private
 
