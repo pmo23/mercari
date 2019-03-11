@@ -1,0 +1,21 @@
+= render "shared/header"
+= render "shared/nav"
+%section.pickup-container
+  %h2.pickup-head
+  %section.items-box__container
+    %h3.text-center
+    .items-box__content.clearfix
+      - @products.each do |product|
+        %section.items-box
+          =link_to product_path(product) do
+            %figure.items-box__photo
+              = image_tag product.image
+            .items-box__body
+              %h3.items-box__name
+                = product.name
+              .items-box__num
+                .items-box__price
+                  = '￥' + product.price.to_s
+                %p.items-box__tax (税込)
+= render "shared/footer"
+= render "shared/sell-btn"
