@@ -1,7 +1,7 @@
 FactoryBot.define do
 
   factory :product do
-    id                     {"#{Faker::Number.number(1)}"}
+    id                     {"1"}
     name                   {"モンベル スペリオダウンジャケット"}
     product_description    {"保温性と軽量性を高次元で両立したジャケット"}
     category1              {"メンズ"}
@@ -16,8 +16,10 @@ FactoryBot.define do
     shipping_date          {"1~2日で発送"}
     price                  {"#{Faker::Number.number(4)}"}
     point                  {"#{Faker::Number.number(2)}"}
+    image                  {"#{Faker::Avatar.image}"}
+    sales_condition        {"#{Faker::Number.number(1)}"}
+    user_id                {"1}"}
     created_at             {"#{Faker::Date.backward(14)}"}
     updated_at             {"#{Faker::Date.backward(14)}"}
-    sales_condition        {"#{Faker::Number.number(3)}"}
   end
 end
