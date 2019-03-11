@@ -13,7 +13,7 @@
               = image_tag "buy-product-image"
             %p.buy-product-name
               #{@product.name}
-            %form.buy-product
+            .buy-product
               %p.buy-product-price
                 ¥
                 = number_with_delimiter(@product.price)
@@ -32,21 +32,19 @@
                         ¥
                         = number_with_delimiter(@product.price)
                 %p.has-error-text
-                  配送先と支払い方法の入力を完了してください。
-                .main-container__inner-content
-                  %button#google-login.btn-default.btn-sns.btn-sns__google
-                    購入する
+                  = form_tag(action: :create, method: :post) do
+                    %script.payjp-button{"data-key": ENV["PAYJP_PUBLIC_KEY"], src: "https://checkout.pay.jp/", type: "text/javascript",class: "paybutton","data-text":  "購入する"}
 
         .main-container__buyer
           .main-container__buyer-inner
             %h3.buy-user-info
               配送先
             %adress.buy-user-info-text
-              〒060-0000
+              = "〒" + "#{@address.zip_code}"
               %br
-              北海道 札幌市中央区1
+              #{@address.city}
               %br
-              test_user
+              #{current_user.nickname}
               %br
             %p.buy-user-info-text
               =link_to '' , class: "buy-user-info-fix" do
@@ -62,7 +60,7 @@
               %br
             %figure
             %p.buy-user-info-text
-              =link_to '' , class: "buy-user-info-fix" do
+              =link_to user_cards_path(current_user) , class: "buy-user-info-fix" do
                 %span 変更する >
 
   = render "shared/footer2"
