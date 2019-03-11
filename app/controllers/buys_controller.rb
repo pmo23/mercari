@@ -1,8 +1,9 @@
 class BuysController < ApplicationController
 
   def new
-    @product = Product.find(1)
-    @product_image = ProductImage.find(1)
+    @product = Product.find(params[:product_id])
+    # @product_image = ProductImage.find(params[:id])
+    @address = Address.find(current_user)
   end
 
 end

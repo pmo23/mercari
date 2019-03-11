@@ -31,7 +31,6 @@ describe ProductsController do
     it "assigns @product" do
       expect(assigns(:product)).to eq @product
     end
-
     it "renders show" do
       render_template :show
     end
@@ -47,7 +46,6 @@ describe ProductsController do
           delete :destroy, params: { id: product.id }
         end.to change(Product, :count).by(1)
       end
-
       it 'redirects the :create template' do
         delete :destroy, params: { id: product.id }
         expect(response).to redirect_to(root_path)
@@ -96,4 +94,36 @@ describe ProductsController do
       end
     end
   end
+
+  describe 'GET #edit' do
+    before { get :edit, params: { id: product.id } ,session: {} }
+
+    it 'assigns the requested product to @product' do
+      expect(assigns(:product)).to eq @product
+    end
+  end
+
+  describe 'PATCH #update' do
+    it "locates the requersted @product" do
+     patch :update, params: {id: product.id}, product: attributes_for(:product)
+      expect(assigns(:product)).to eq @product
+    end
+    it "changes @product's attributes" do
+      patch :update, params:{id: product.id}, product: attributes_for(:product, name: 'モンベル スペリオダウンジャケット', product_description: '保温性と軽量性を高次元で両立したジャケット')
+      product.reload
+      expect(product.name).to eq("モンベル スペリオダウンジャケット")
+      expect(product.product_description).to eq("保温性と軽量性を高次元で両立したジャケット")
+    end
+  end
+
+  describe '#search' do
+    it "assigns @product" do
+      expect(assigns(:product)).to eq @product
+    end
+    it "renders search" do
+      get :search
+      expect(response).to render_template :search
+    end
+  end
+
 end
