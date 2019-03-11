@@ -94,3 +94,8 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
+
+# require 'payjp_mock'
+# RSpec.configure do |config|
+#   config.include PayjpMock::WebMockWrapper
+# end

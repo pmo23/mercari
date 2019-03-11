@@ -98,11 +98,21 @@
               text-align: center;
               color: red;
             }
-            button{
-              border: 1px solid #888;
-              background: #888;
-              color: #fff;
-              font-weight: 600;
+            form{
+              text-align: center;
+                  margin: 16px 0 0;
+              #payjp_checkout_box{
+                input{
+                display: block;
+                width: 100%;
+                line-height: 36px;
+                font-size: 14px;
+                border: 1px solid #ea352d;
+                background: #ea352d;
+                color: #fff;
+                font-weight: 600;
+                }
+              }
             }
           }
           h3{
