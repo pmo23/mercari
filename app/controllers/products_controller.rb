@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_category
-  before_action :move_to_signup, except: [:index, :show]
+  before_action :move_to_signup, except: [:index, :show, :search]
   before_action :set_group, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -39,6 +39,9 @@ class ProductsController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @products = Product.where('name LIKE(?)',"%#{params[:keyword]}%")
+  end
 
   private
 
