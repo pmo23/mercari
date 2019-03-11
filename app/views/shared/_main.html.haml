@@ -14,7 +14,8 @@
                 = product.name
               .items-box__num
                 .items-box__price
-                  = '￥' + product.price.to_s
+                  ¥
+                  = number_with_delimiter(product.price)
                 %p.items-box__tax (税込)
       .view-all
         =link_to "すべての商品を見る", ''
