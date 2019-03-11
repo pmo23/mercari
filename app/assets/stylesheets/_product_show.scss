@@ -112,6 +112,11 @@
     text-align: center;
     font-weight: bold;
     font-size: 24px;
+    &-disable{
+      @extend .item-box__buy;
+      background: #aaa;
+      border: 1px solid #aaa;
+    }
   }
   &__buy:hover {
     text-decoration: none;

@@ -4,7 +4,7 @@
   %h1.item-box__name
     = @product.name
   %p.item-box__sub
-    = "『#{@product.name}』は、24回の取引実績を持つ#{@product.user.nickname}さんから出品されました。アネロ（リュック/バックパック/レディース）の商品で、#{Prefecture.data[@product.sales_condition].fetch(:name)}から#{Shippingday.data[@product.sales_condition].fetch(:name)}で発送されます。"
+    = "『#{@product.name}』は、24回の取引実績を持つ#{@product.user.nickname}さんから出品されました。アネロ（リュック/バックパック/レディース）の商品で、#{Prefecture.data[@product.ship_from.to_i].fetch(:name)}から#{Shippingday.data[@product.shipping_date.to_i].fetch(:name)}で発送されます。"
   .item-box__main.clearfix
     .item-box__main-photo
       %div
@@ -64,12 +64,21 @@
       = "￥" + number_with_delimiter(@product.price.to_s)
     %span.tax (税込)
     %span.shipping 送料込み
-  - if user_signed_in? && current_user.id == @product.user_id
-    =link_to 'この商品を編集する', edit_product_path , method: :get,class: "item-box__buy"
 
-    =link_to 'この商品を削除する', product_path , method: :delete,class: "item-box__buy", data: { confirm: "#{@product.name}を削除しますか？" }
-  - else
+  - if @product.sales_condition == 3
+    .item-box__buy-disable
+      %span 売り切れました
+
+  - elsif user_signed_in? && current_user.id != @product.user_id
     =link_to "購入画面に進む", new_product_buy_path(@product) ,method: :get, class: "item-box__buy"
+
+  - elsif user_signed_in? && current_user.id == @product.user_id
+    =link_to 'この商品を編集する', edit_product_path , method: :get,class: "item-box__buy"
+    =link_to 'この商品を削除する', product_path , method: :delete,class: "item-box__buy", data: { confirm: "#{@product.name}を削除しますか？" }
+
+  - else
+    =link_to "購入画面に進む",  new_user_session_path ,method: :get, class: "item-box__buy"
+
   .item-box__description
     %p
       = @product.product_description
