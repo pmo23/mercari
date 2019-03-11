@@ -3,13 +3,12 @@ class BuysController < ApplicationController
 
   def new
     @product = Product.find(params[:product_id])
-    @user_id = current_user.id
-    @address = Address.find_by(user_id: @user_id)
+    @address = current_user.address
   end
 
   def create
     @product = Product.find(params[:product_id])
-    Payjp.api_key = "sk_test_169820924d58e7be1fff7073"
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     charge = Payjp::Charge.create( amount: @product.price, card: params['payjp-token'], currency: 'jpy' )
     flash[:notice] =  "支払いが完了しました"
     redirect_to root_path
