@@ -4,8 +4,8 @@
       %h1.l-left
         =link_to '/' do
           = image_tag "logo.svg", :height => "36", :width => "134", alt:"mercari"
-      %form.pc-header-inner__form.l-right{:action => ""}
-        %input.input-default{:name => "keyword", :placeholder => "キーワードから探す", :type => "search", :value => ""}/
+      = form_tag( search_products_path,method: :get, class: 'pc-header-inner__form l-right') do
+        %input.input-default{:name => "keyword", :placeholder => "キーワードから探す", :type => "search", :value => ""}
         %button#sbtn2{:type => "submit"}
           = fa_icon 'search', class: 'icon'
     .pc-header-nav.clearfix
