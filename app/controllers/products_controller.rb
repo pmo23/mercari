@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_category
-  before_action :move_to_signup, except: [:index, :show]
+  before_action :move_to_signup, except: [:index, :show, :search]
+  before_action :set_group, only: [:show, :edit, :update, :destroy]
 
   def index
     @products = Product.all
@@ -11,7 +12,6 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
   end
 
   def create
@@ -23,11 +23,24 @@ class ProductsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @product.user_id == current_user.id
+      @product.update(product_sale_params)
+      redirect_to product_path
+    end
+  end
+
   def destroy
-    product = Product.find(params[:id])
-    product.destroy if product.user_id == current_user.id
+    @product.destroy if @product.user_id == current_user.id
     flash[:notice] = "商品を削除しました"
     redirect_to root_path
+  end
+
+  def search
+    @products = Product.where('name LIKE(?)',"%#{params[:keyword]}%")
   end
 
   private
@@ -46,6 +59,10 @@ class ProductsController < ApplicationController
 
   def move_to_signup
     redirect_to new_user_session_path unless user_signed_in?
+  end
+
+  def set_group
+    @product = Product.find(params[:id])
   end
 
 end
