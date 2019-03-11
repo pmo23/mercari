@@ -9,9 +9,6 @@
     .item-box__main-photo
       %div
         = image_tag @product.image
-      / -if @product.sales_condition == 3
-      /   .item-box-sold-out-badge
-      /     %p SOLD OUT
       .photo
         = image_tag @product.image
       .photo
