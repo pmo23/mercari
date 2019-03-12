@@ -51,6 +51,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'faker'
   gem 'capybara'
+  gem 'payjp_mock'
 end
 
 group :development do
@@ -82,3 +83,4 @@ gem 'omniauth-google-oauth2'
 gem 'payjp'
 gem "recaptcha", require: "recaptcha/rails"
 gem 'ransack'
+gem 'dotenv-rails'
