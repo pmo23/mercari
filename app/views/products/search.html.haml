@@ -1,9 +1,45 @@
 = render "shared/header"
 = render "shared/nav"
-%section.pickup-container
-  %h2.pickup-head
-  %section.items-box__container
-    %h3.text-center
+%section.pickup-container.search.clearfix
+  = search_form_for @q, url: search_products_path , class: "search-left" do |f|
+    .search-left--order
+      .search-left--order__form
+        %h3 並び替え
+        .search-left--order__form__btn.input-default
+          = sort_link(@q, :price,"価格順")
+        .search-left--order__form__btn.input-default
+          = sort_link(@q, :created_at,"出品日時順")
+    .search-left--tool
+      %h3 詳細検索
+      .search-left--tool__form
+        =f.label :name_cont,"キーワードを追加する"
+        =f.text_field :name_cont,class: "input-default"
+      .search-left--tool__form
+        =f.label :category1_eq,"カテゴリーを選択する"
+        =f.collection_select :category1_eq, @category, :id, :name, {prompt: "すべて"},class: "input-default"
+      .search-left--tool__form
+        =f.label :price_gteq,"価格"
+        =f.number_field :price_gteq,class: "input-default", placeholder: "¥ Min"
+      .search-left--tool__form
+        =f.label :price_lteq,"~"
+        =f.number_field :price_lteq,class: "input-default", placeholder: "¥ Max"
+      .search-left--tool__form
+        =f.label :condition_in,"商品の状態",class: "search-left--tool__form__title"
+        =f.collection_check_boxes :condition_in, @condition, :id, :name do |b|
+          .search-left--tool__form__checkbox
+            =b.check_box class: "checkbox-default"
+            =b.label class: "label"
+      .search-left--tool__form
+        =f.label :postage_in,"配送料の負担",class: "search-left--tool__form__title"
+        =f.collection_check_boxes :postage_in, @shippingpay, :id, :name do |b|
+          .search-left--tool__form__checkbox
+            =b.check_box class: "checkbox-default"
+            =b.label class: "label"
+      .search-left--tool__btn
+        = link_to "クリア", request.path, class: "btn-default btn-gray"
+        = f.submit "完了", class: "btn-default btn-red"
+  .items-box__container
+    %h3 検索結果
     .items-box__content.clearfix
       - @products.each do |product|
         %section.items-box
