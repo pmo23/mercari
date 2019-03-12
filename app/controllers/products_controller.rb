@@ -2,7 +2,6 @@ class ProductsController < ApplicationController
   before_action :set_category
   before_action :move_to_signup, except: [:index, :show, :search]
   before_action :set_group, only: [:show, :edit, :update, :destroy]
-  before_action :search_products
 
   def index
   end
@@ -43,11 +42,6 @@ class ProductsController < ApplicationController
   end
 
   private
-
-  def search_products
-    @q = Product.ransack(params[:q])
-    @products = @q.result(distinct: true)
-  end
 
   def product_sale_params
     params.require(:product).permit(:name,:product_description,:category1,:category2,:category3,:brand,:postage,:price,:condition,:shipping_method,:ship_from,:shipping_date,:image).merge(sales_condition: 1,user_id: current_user.id)
