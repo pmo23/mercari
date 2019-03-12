@@ -1,0 +1,49 @@
+.search{
+  width: 1020px;
+  margin: 0 auto;
+  &-left{
+    float:left;
+    width: 25%;
+    &--order{
+      &__form{
+        background: #fff;
+        text-align: left;
+        padding: 16px;
+        &__btn{
+          margin: 24px 0 0;
+        }
+      }
+    }
+    &--tool{
+      margin: 40px 0 0;
+      box-shadow: none;
+      padding: 16px;
+      position: static;
+      display: block;
+      background: #fff;
+      &__form{
+        margin: 24px 0 0;
+        &__title{
+          display: block;
+        }
+        &__checkbox{
+          margin: 5px 0 0;
+        }
+      }
+      &__btn{
+        height: 90px;
+        padding: 40px 0 0;
+        .btn-default{
+          width: 45%;
+        }
+      }
+    }
+  }
+  .items-box__container{
+    float:right;
+    width: 74%;
+    .items-box{
+      margin-top: 20px;
+    }
+  }
+}

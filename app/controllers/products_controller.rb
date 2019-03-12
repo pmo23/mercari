@@ -4,7 +4,6 @@ class ProductsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
 
   def index
-    @products = Product.all
   end
 
   def new
@@ -40,7 +39,6 @@ class ProductsController < ApplicationController
   end
 
   def search
-    @products = Product.where('name LIKE(?)',"%#{params[:keyword]}%")
   end
 
   private
