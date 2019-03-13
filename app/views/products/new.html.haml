@@ -33,7 +33,9 @@
                 %h3
                   カテゴリー
                   %span.must-icon 必須
-                = f.collection_select :category1, Category.all, :id, :name, {prompt: "---"},class: "select-default"
+                = f.collection_select :category1, Category1.all, :id, :name, {prompt: "---"},class: "select-default"
+                = f.collection_select :category2, Category2.all, :id, :name, {prompt: "---"},class: "select-default"
+                = f.collection_select :category3, Category3.all, :id, :name, {prompt: "---"},class: "select-default"
               .form-group
                 %h3
                   商品の状態
