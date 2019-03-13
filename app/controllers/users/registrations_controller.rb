@@ -3,8 +3,8 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-  prepend_before_action :check_captcha, only: [:create]
-  prepend_before_action :customize_sign_up_params, only: [:create]
+  prepend_before_action :check_captcha, only: [:address, :new_user_session]
+  prepend_before_action :customize_sign_up_params, only: [:address]
   protect_from_forgery except: :create
   def registration
   end
@@ -81,7 +81,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     unless verify_recaptcha(model: resource)
       self.resource = resource_class.new sign_up_params
       resource.validate
-      respond_with_navigational(resource) { render :new }
+      respond_with_navigational(resource) { render :registration }
     end
   end
 end
