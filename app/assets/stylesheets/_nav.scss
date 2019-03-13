@@ -1,8 +1,11 @@
-.pankuzu {
+.bread-crumbs {
   position: relative;
   border-top: 1px solid #eee;
+  -webkit-box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
   background: #fff;
   box-shadow: 0 3px 3px 0 rgba(0,0,0,0.1);
+  cursor: pointer;
   &-list {
     width: 1020px;
     margin: 0 auto;
@@ -10,12 +13,8 @@
     &__item {
       display: inline-block;
       font-size: 14px;
+      font-size: 16px;
       line-height: 1.2;
-      .fa-angle-right {
-        margin: 0 8px;
-        font-size: 14px;
-        color: #888;
-      }
     }
   }
 }
