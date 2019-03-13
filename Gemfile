@@ -84,8 +84,5 @@ gem 'payjp'
 gem "recaptcha", require: "recaptcha/rails"
 gem 'ransack'
 gem 'dotenv-rails'
-<<<<<<< HEAD
 gem 'gretel'
-=======
->>>>>>> sattsu55/master
 gem 'mechanize'
