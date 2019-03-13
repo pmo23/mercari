@@ -82,4 +82,6 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'payjp'
 gem "recaptcha", require: "recaptcha/rails"
+gem 'ransack'
 gem 'dotenv-rails'
+gem 'mechanize'
