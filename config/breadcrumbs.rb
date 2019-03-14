@@ -32,3 +32,20 @@ crumb :product do |product|
   parent :root
 end
 
+crumb :search do |search|
+  link "#{search.name_cont}", products_path(search)
+  parent :root
+end
+
+crumb :catergory do |catergory|
+  link "カテゴリー一覧", products_path(@catergory)
+  parent :root
+  link "p#{catergory}"
+
+  # parent :catergory
+  # link "#{catergory2}"
+  # parent :catergory1
+
+  # link "#{catergory3}"
+  # parent :catergory2
+end
