@@ -8,7 +8,7 @@
         %section.items-box
           =link_to product_path(product) do
             %figure.items-box__photo
-              = image_tag product.image
+              = image_tag product.product_images.first.product_image unless product.product_images.blank?
             .items-box__body
               %h3.items-box__name
                 = product.name
