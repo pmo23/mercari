@@ -85,3 +85,4 @@ gem "recaptcha", require: "recaptcha/rails"
 gem 'ransack'
 gem 'dotenv-rails'
 gem 'mechanize'
+gem 'seed_dump'
