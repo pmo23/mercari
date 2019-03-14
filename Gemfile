@@ -84,5 +84,6 @@ gem 'payjp'
 gem "recaptcha", require: "recaptcha/rails"
 gem 'ransack'
 gem 'dotenv-rails'
+gem 'gretel'
 gem 'mechanize'
 gem 'seed_dump'
