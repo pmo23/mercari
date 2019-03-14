@@ -13,8 +13,9 @@
               出品画像
               %span.must-icon 必須
             %p 最大10枚までアップロードできます
-            = f.fields_for :product_images do |i|
-              = i.file_field :product_image
+            - 10.times do |times|
+              = f.fields_for :product_images do |i|
+                = i.file_field :product_image
             .main-container__seller--image__upload
               %pre ドラッグアンドドロップまたはクリックしてファイルをアップロード
           .main-container__seller
