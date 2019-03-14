@@ -8,16 +8,24 @@
     = "『#{@product.name}』は、24回の取引実績を持つ#{@product.user.nickname}さんから出品されました。アネロ（リュック/バックパック/レディース）の商品で、#{Prefecture.data[@product.ship_from.to_i].fetch(:name)}から#{Shippingday.data[@product.shipping_date.to_i].fetch(:name)}で発送されます。"
   .item-box__main.clearfix
     .item-box__main-photo
-      %div
-        = image_tag @product.image
-      .photo
-        = image_tag @product.image
-      .photo
-        = image_tag @product.image
-      .photo
-        = image_tag @product.image
-      .photo
-        = image_tag @product.image
+      %ul.thumb-item
+        %li
+          = image_tag @product.image
+        %li
+          = image_tag @product.image
+        %li
+          = image_tag @product.image
+        %li
+          = image_tag @product.image
+      %ul.thumb-item-nav
+        %li
+          = image_tag @product.image
+        %li
+          = image_tag @product.image
+        %li
+          = image_tag @product.image
+        %li
+          = image_tag @product.image
       -if @product.sales_condition == 3
         %span SOLD OUT
     %table.item-box__main-detail

@@ -25,13 +25,13 @@
       max-width: 300px;
       min-height: 375px;
       position: relative;
-      div {
+      .thumb-item {
         img {
           width: 300px;
           height: 300px;
         }
       }
-      .photo {
+      .thumb-item-nav {
         margin: 0;
         float: left;
         opacity: 0.5;
