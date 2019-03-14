@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   before_action :set_category
   before_action :move_to_signup, except: [:index, :show, :search]
   before_action :set_group, only: [:show, :edit, :update, :destroy]
-
+  protect_from_forgery except: :create
   def index
   end
 
