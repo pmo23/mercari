@@ -40,6 +40,16 @@
           height: 75px;
         }
       }
+      span{
+        position: absolute;
+        top: 37%;
+        left: 22%;
+        font-weight: bold;
+        font-size: 32px;
+        color:#fff;
+        background: #ea352d;
+        border: 1px solid #ea352d;
+      }
     }
     &-detail {
       float: right;
@@ -112,6 +122,11 @@
     text-align: center;
     font-weight: bold;
     font-size: 24px;
+    &-disable{
+      @extend .item-box__buy;
+      background: #aaa;
+      border: 1px solid #aaa;
+    }
   }
   &__buy:hover {
     text-decoration: none;

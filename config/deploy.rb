@@ -22,7 +22,13 @@ set :default_env, {
   AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
   AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"],
   BASIC_AUTH_USER: ENV["BASIC_AUTH_USER"],
-  BASIC_AUTH_PASSWORD: ENV["BASIC_AUTH_PASSWORD"]
+  BASIC_AUTH_PASSWORD: ENV["BASIC_AUTH_PASSWORD"],
+  RECAPTCHA_SITE_KEY: ENV['RECAPTCHA_SITE_KEY'],
+  RECAPTCHA_SECRET_KEY: ENV['RECAPTCHA_SECRET_KEY'],
+  APP_ID: ENV["APP_ID"],
+  APP_SECRET: ENV["APP_SECRET"],
+  GOOGLE_CLIENT_ID: ENV['GOOGLE_CLIENT_ID'],
+  GOOGLE_CLIENT_SECRET: ENV['GOOGLE_CLIENT_SECRET']
 }
 
 set :linked_files, %w{ config/secrets.yml }
@@ -32,7 +38,16 @@ namespace :deploy do
   task :restart do
     invoke 'unicorn:restart'
   end
-
+  desc 'db_seed'
+  task :db_seed do
+    on roles(:db) do |host|
+      with rails_env: fetch(:rails_env) do
+        within current_path do
+          execute :bundle, :exec, :rake, 'db:seed'
+        end
+      end
+    end
+  end
   desc 'upload secrets.yml'
   task :upload do
     on roles(:app) do |host|
