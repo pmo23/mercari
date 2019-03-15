@@ -35,9 +35,14 @@
                 %h3
                   カテゴリー
                   %span.must-icon 必須
-                = f.collection_select :category1, Category1.all, :id, :name, {prompt: "---"},class: "select-default"
-                = f.collection_select :category2, Category2.all, :id, :name, {prompt: "---"},class: "select-default"
-                = f.collection_select :category3, Category3.all, :id, :name, {prompt: "---"},class: "select-default"
+                - category1_options = Category1.order(:id).map { |c| [c.name, c.id, data: { children_path: category1_category2s_path(c) }] }
+                = f.select :category1, category1_options, { include_blank: true }, class: 'select-parent'
+                / = f.collection_select :category1, Category1.all, :id, :name, {prompt: "---"},class: "select-default"
+                - category2s = @product.category1.try(:category2s) || []
+                - category2_options = category2s.map { |c| [c.name, c.id] }
+                = f.select :category2, category2_options, { include_blank: true }, class: 'select-children'
+                / = f.collection_select :category2, Category2.all, :id, :name, {prompt: "---"},class: "select-default"
+                / = f.collection_select :category3, Category3.all, :id, :name, {prompt: "---"},class: "select-default"
               .form-group
                 %h3
                   商品の状態

@@ -1,3 +1,3 @@
 class Category1 < ApplicationRecord
-  has_many :category2
+  has_many :category2s, ->{ order(:id) }
 end
