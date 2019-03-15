@@ -8,6 +8,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @product.product_images.build
   end
 
   def show
@@ -44,7 +45,7 @@ class ProductsController < ApplicationController
   private
 
   def product_sale_params
-    params.require(:product).permit(:name,:product_description,:category1,:category2,:category3,:brand,:postage,:price,:condition,:shipping_method,:ship_from,:shipping_date,:image).merge(sales_condition: 1,user_id: current_user.id)
+    params.require(:product).permit(:name,:product_description,:category1,:category2,:category3,:brand,:postage,:price,:condition,:shipping_method,:ship_from,:shipping_date,:image,product_images_attributes: [:product_image]).merge(sales_condition: 1,user_id: current_user.id)
   end
 
   def set_category
