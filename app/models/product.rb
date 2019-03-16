@@ -5,6 +5,7 @@ class Product < ApplicationRecord
   accepts_nested_attributes_for :product_images
   belongs_to :category1
   belongs_to :category2
+  belongs_to :category3
   validates :name, presence: true, length: {maximum: 40}
   validates :product_description, presence: true, length: {maximum: 1000}
   validates :category1, presence: true

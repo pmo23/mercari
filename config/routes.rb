@@ -43,6 +43,8 @@ Rails.application.routes.draw do
   get '/users/:id/profile', to: 'users#plofile'
   get '/users/:id/confirmation', to: 'users#confirmation'
   resources :category1s, only: [] do
-    resources :category2s, only: :index
+    resources :category2s, only: :index do
+      resources :category3s, only: :index
+    end
   end
 end
