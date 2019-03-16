@@ -26,7 +26,7 @@
           = image_tag @product.image
         %li
           = image_tag @product.image
-      -if @product.sales_condition == 3
+      -if @product.sales_condition == 1
         %span SOLD OUT
     %table.item-box__main-detail
       %tbody
@@ -76,7 +76,7 @@
     %span.tax (税込)
     %span.shipping 送料込み
 
-  - if @product.sales_condition == 3
+  - if @product.sales_condition == 1
     .item-box__buy-disable
       %span 売り切れました
 
