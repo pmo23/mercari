@@ -56,10 +56,12 @@ ActiveRecord::Schema.define(version: 20190315084254) do
   end
 
   create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "buyer_id"
+    t.integer  "user_id"
     t.integer  "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_orders_on_product_id", using: :btree
+    t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end
 
   create_table "product_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -117,6 +119,8 @@ ActiveRecord::Schema.define(version: 20190315084254) do
   add_foreign_key "category2s", "category1s", column: "category1s_id"
   add_foreign_key "category3s", "category2s", column: "category2s_id"
   add_foreign_key "credits", "users"
+  add_foreign_key "orders", "products"
+  add_foreign_key "orders", "users"
   add_foreign_key "product_images", "products"
   add_foreign_key "products", "users"
 end

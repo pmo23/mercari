@@ -1,0 +1,37 @@
+- breadcrumb :buy_list, @buy_list
+= render "shared/header"
+= render "shared/nav"
+%main.mypage
+  .mypage-body
+    = render "shared/mypage-side"
+    .mypage-content
+      %section.mypage-content--sold
+        %h2.mypage-content--sold--tab  購入した商品
+        %section.mypage-content--todo
+          %ul.mypage-tabs
+            %li.active
+              %h3  取引中
+            %li
+              %h3  過去の取引中（工事中）
+          .tab-content
+            %ul
+              - if @order
+                = @order.each do |order|
+                  %li
+                    =link_to  "/products/#{order.product_id}", class: 'mypage-item-link' do
+                      %figure
+                        =image_tag("#{ProductImage.find_by(product_id:"#{order.product_id}").product_image}")
+                      .mypage-item-body
+                        %p #{order.product.name}
+                        %p #{order.product.sales_condition}
+                      %i.fa.fa-angle-right
+              - else
+                %li
+                  %a.mypage-item-link
+                    %figure
+                      =image_tag("member_photo_noimage_thumb.png")
+                    .mypage-item-body
+                      %p  出品中の商品はありません
+                    %i.fa.fa-angle-right
+= render "shared/footer"
+= render "shared/sell-btn"

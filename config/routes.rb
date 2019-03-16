@@ -38,6 +38,7 @@ Rails.application.routes.draw do
       get 'profile'
     end
     resources :lists, only: :index
+    resources :buy_lists, only: :index
     resources :cards, only: [:index, :new, :create]
   end
   get '/users/:id/profile', to: 'users#plofile'

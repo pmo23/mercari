@@ -1,6 +1,7 @@
 class Product < ApplicationRecord
 
   has_many :product_images, dependent: :destroy
+  has_one :order
   belongs_to :user, optional: true
   accepts_nested_attributes_for :product_images
 
