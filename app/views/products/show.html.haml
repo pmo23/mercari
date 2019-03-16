@@ -26,7 +26,7 @@
           = image_tag @product.image
         %li
           = image_tag @product.image
-      -if @product.sales_condition == 3
+      -if @product.sales_condition == 1
         %span SOLD OUT
     %table.item-box__main-detail
       %tbody
@@ -47,9 +47,9 @@
         %tr
           %th カテゴリー
           %td
-            =link_to "#{Category.data[@product.category1.to_i].fetch(:name)}" ''
-            =link_to ">#{Category.data[@product.category2.to_i].fetch(:name)}" ''
-            =link_to ">#{Category.data[@product.category3.to_i].fetch(:name)}" ''
+            =link_to "#{@category1.find(@product.category1.to_i).name}" ''
+            =link_to ">#{@category2.find(@product.category2.to_i).name}" ''
+            =link_to ">#{@category3.find(@product.category3.to_i).name}" ''
         %tr
           %th ブランド
           %td
@@ -76,7 +76,7 @@
     %span.tax (税込)
     %span.shipping 送料込み
 
-  - if @product.sales_condition == 3
+  - if @product.sales_condition == 1
     .item-box__buy-disable
       %span 売り切れました
 
