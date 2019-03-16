@@ -48,6 +48,15 @@ namespace :deploy do
       end
     end
   end
+  task :db_reset do
+    on roles(:app) do
+      within release_path do
+        with rails_env: fetch(:rails_env) do
+          execute :rake, "db:migrate:reset"
+        end
+      end
+    end
+  end
   desc 'upload secrets.yml'
   task :upload do
     on roles(:app) do |host|
