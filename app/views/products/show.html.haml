@@ -47,9 +47,9 @@
         %tr
           %th カテゴリー
           %td
-            =link_to "#{@category1.find(@product.category1.to_i).name}" ''
-            =link_to ">#{@category2.find(@product.category2.to_i).name}" ''
-            =link_to ">#{@category3.find(@product.category3.to_i).name}" ''
+            =link_to Category1.find_by(id: @product.category1_id).name
+            =link_to Category2.find_by(id: @product.category2_id).name
+            =link_to Category3.find_by(id: @product.category3_id).name
         %tr
           %th ブランド
           %td
