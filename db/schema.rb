@@ -33,18 +33,18 @@ ActiveRecord::Schema.define(version: 20190313035147) do
 
   create_table "category2s", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.integer  "category1s_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["category1s_id"], name: "index_category2s_on_category1s_id", using: :btree
+    t.integer  "category1_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["category1_id"], name: "index_category2s_on_category1_id", using: :btree
   end
 
   create_table "category3s", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.integer  "category2s_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["category2s_id"], name: "index_category3s_on_category2s_id", using: :btree
+    t.integer  "category2_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["category2_id"], name: "index_category3s_on_category2_id", using: :btree
   end
 
   create_table "credits", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -107,8 +107,8 @@ ActiveRecord::Schema.define(version: 20190313035147) do
   end
 
   add_foreign_key "addresses", "users"
-  add_foreign_key "category2s", "category1s", column: "category1s_id"
-  add_foreign_key "category3s", "category2s", column: "category2s_id"
+  add_foreign_key "category2s", "category1s"
+  add_foreign_key "category3s", "category2s"
   add_foreign_key "credits", "users"
   add_foreign_key "product_images", "products"
   add_foreign_key "products", "users"
