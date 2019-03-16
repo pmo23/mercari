@@ -12,6 +12,10 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @product = Product.find(params[:id])
+    @category1 = Category1.all
+    @category2 = Category2.all
+    @category3 = Category3.all
   end
 
   def create

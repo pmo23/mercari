@@ -12,6 +12,11 @@ crumb :list do |list|
   parent :user
 end
 
+crumb :buy_list do |buy_list|
+  link "購入したやつ"
+  parent :user
+end
+
 crumb :confirmation do |confirmation|
   link "本人情報"
   parent :user
