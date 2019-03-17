@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "products#index"
   devise_for :users, :controllers => {
     :sessions           => "users/sessions",
     :registrations      => "users/registrations",
@@ -24,7 +25,6 @@ Rails.application.routes.draw do
   #   devise_scope :user do
   #   delete :sign_out, to: 'devise/sessions#destroy', as: :destroy_user_session
   # end
-  root "products#index"
   resources :products do
     resources :buys, only: [:new, :create]
     collection do
