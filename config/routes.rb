@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   root "products#index"
   resources :products do
     resources :buys, only: [:new, :create]
+    resources :comments, only: [:create, :destroy]
     collection do
       get 'search'
     end

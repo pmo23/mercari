@@ -169,7 +169,6 @@
 
 .item-message {
   margin: 8px auto;
-  width: 700px;
   &__content {
     padding: 24px;
     background-color: #fff;
@@ -179,8 +178,6 @@
         margin-top: 40px;
         .message-user {
           float: left;
-          position: relative;
-          top: -20px;
           display: inline-block;
           color: #333;
           &__icon {
@@ -191,15 +188,14 @@
             background-color: red;
           }
           &__name {
-            overflow: hidden;
-            position: absolute;
-            top: 0;
-            left: 56px;
-            max-width: 100%;
-            min-width: 214px;
             height: 1.2em;
             white-space: nowrap;
             text-overflow: ellipsis;
+            a {
+              font-weight: 600;
+              position: absolute;
+              left: 265px;
+            }
           }
         }
         .message-body {
@@ -215,11 +211,20 @@
           }
         }
       }
-      .clearfix::after {
-        content: "";
-        display: block;
-        clear: both;
-      }
+    }
+  }
+  .container {
+    display: block;
+    clear: both;
+    textarea {
+    height: 90px;
+    width: 620px;
+    font-size: x-large;
+    }
+    input {
+    font-weight: 600;
+    width: 620px;
+    background: gainsboro;
     }
   }
 }

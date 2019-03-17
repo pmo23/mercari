@@ -106,31 +106,7 @@
       =link_to '' do
         = fa_icon 'lock'
         %span あんしん・あんぜんのへの取り組み
-.item-message
-  .item-message__content
-    %ul
-      %li.clearfix
-        =link_to '', class: "message-user" do
-          .message-user__icon
-            = image_tag ""
-          .message-user__name shiraiwa
-        .message-body
-          .message-body__text
-            はじめまして！ 購入検討しております。
-            %br/
-            2枚目の画像、ネイビーに見えないのですが、色褪せですか？？
-            %br/
-            とても綺麗にみえるのですが、金具の不具合、ゴムの伸びはありますか？
-            %br/
-            検印ありますか？
-            %br/
-            質問ばかりで申し訳ありません。
-            %br/
-            お返事お待ちしています。
-            %br/
-          .message-body__icons
-            = fa_icon 'apple', class: "fa-clock"
-            %span 3日前
+  = render "shared/comment"
 .social-media
   %ul.social-media__box
     %li
