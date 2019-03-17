@@ -18,6 +18,29 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
 
+  #フォローのみを考える
+  has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
+  #フォローしているユーザーを特定
+  has_many :followings, through: :following_relationships
+  #フォローされることを考える
+  has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
+  #フォローされているユーザーを特定
+  has_many :followers, through: :follower_relationships
+
+  #現在のユーザーがフォーローしているかどうか
+  def following?(other_user)
+    following_relationships.find_by(following_id: other_user.id)
+  end
+
+  #フォローをする
+  def follow!(other_user)
+    following_relationships.create!(following_id: other_user.id)
+  end
+
+  #フォローを外す
+  def unfollow!(other_user)
+    following_relationships.find_by(following_id: other_user.id).destroy
+  end
 
    def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
