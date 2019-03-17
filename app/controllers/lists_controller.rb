@@ -2,7 +2,7 @@ class ListsController < ApplicationController
   before_action :move_to_index, except: [:new]
 
   def index
-    @products = current_user.products
+    @products = Product.where(user_id: "#{current_user.id}")
   end
 
   private
