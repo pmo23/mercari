@@ -9,23 +9,13 @@
   .item-box__main.clearfix
     .item-box__main-photo
       %ul.thumb-item
-        %li
-          = image_tag @product.image
-        %li
-          = image_tag @product.image
-        %li
-          = image_tag @product.image
-        %li
-          = image_tag @product.image
+        - @product.product_images.each do |p|
+          %li
+            = image_tag p.product_image unless p.blank?
       %ul.thumb-item-nav
-        %li
-          = image_tag @product.image
-        %li
-          = image_tag @product.image
-        %li
-          = image_tag @product.image
-        %li
-          = image_tag @product.image
+        - @product.product_images.each do |p|
+          %li
+            = image_tag p.product_image unless p.blank?
       -if @product.sales_condition == 1
         %span SOLD OUT
     %table.item-box__main-detail
