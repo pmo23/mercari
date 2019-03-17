@@ -51,7 +51,7 @@ class Scraping
       when 137..145
         id = 13
       end
-      product = Category2.new(name: ele.inner_text,category1s_id: id)
+      product = Category2.new(name: ele.inner_text,category1_id: id)
       product.save
     end
   end
@@ -76,7 +76,7 @@ class Scraping
       if e == "すべて"
         id += 1
       else
-        product = Category3.new(name: e, category2s_id: id)
+        product = Category3.new(name: e, category2_id: id)
         product.save
       end
     end

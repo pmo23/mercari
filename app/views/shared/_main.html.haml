@@ -8,7 +8,7 @@
         %section.items-box
           =link_to product_path(product) do
             %figure.items-box__photo
-              = image_tag product.image
+              = image_tag product.product_images.first.product_image unless product.product_images.blank?
             .items-box__body
               %h3.items-box__name
                 = product.name
@@ -17,7 +17,7 @@
                   ¥
                   = number_with_delimiter(product.price)
                 %p.items-box__tax (税込)
-            -if product.sales_condition == 3
+            -if product.sales_condition == 1
               %span SOLD OUT
       .view-all
         =link_to "すべての商品を見る", ''

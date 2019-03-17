@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190313035147) do
+
+ActiveRecord::Schema.define(version: 20190316091738) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "zip_code",                    null: false
@@ -33,18 +34,18 @@ ActiveRecord::Schema.define(version: 20190313035147) do
 
   create_table "category2s", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.integer  "category1s_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["category1s_id"], name: "index_category2s_on_category1s_id", using: :btree
+    t.integer  "category1_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["category1_id"], name: "index_category2s_on_category1_id", using: :btree
   end
 
   create_table "category3s", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.integer  "category2s_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["category2s_id"], name: "index_category3s_on_category2s_id", using: :btree
+    t.integer  "category2_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["category2_id"], name: "index_category3s_on_category2_id", using: :btree
   end
 
   create_table "credits", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -53,6 +54,15 @@ ActiveRecord::Schema.define(version: 20190313035147) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.index ["user_id"], name: "index_credits_on_user_id", using: :btree
+  end
+
+  create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_orders_on_product_id", using: :btree
+    t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end
 
   create_table "product_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -66,9 +76,9 @@ ActiveRecord::Schema.define(version: 20190313035147) do
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                              null: false
     t.text     "product_description", limit: 65535, null: false
-    t.string   "category1",                         null: false
-    t.string   "category2"
-    t.string   "category3"
+    t.string   "category1_id",                      null: false
+    t.string   "category2_id"
+    t.string   "category3_id"
     t.string   "brand"
     t.string   "size"
     t.string   "condition",                         null: false
@@ -107,9 +117,11 @@ ActiveRecord::Schema.define(version: 20190313035147) do
   end
 
   add_foreign_key "addresses", "users"
-  add_foreign_key "category2s", "category1s", column: "category1s_id"
-  add_foreign_key "category3s", "category2s", column: "category2s_id"
+  add_foreign_key "category2s", "category1s"
+  add_foreign_key "category3s", "category2s"
   add_foreign_key "credits", "users"
+  add_foreign_key "orders", "products"
+  add_foreign_key "orders", "users"
   add_foreign_key "product_images", "products"
   add_foreign_key "products", "users"
 end

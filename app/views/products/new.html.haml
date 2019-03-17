@@ -12,8 +12,10 @@
             %h3
               出品画像
               %span.must-icon 必須
-            %p 最大10枚までアップロードできます
-            = f.file_field :image
+            %p 最大5枚までアップロードできます
+            - 5.times do |times|
+              = f.fields_for :product_images do |i|
+                = i.file_field :product_image
             .main-container__seller--image__upload
               %pre ドラッグアンドドロップまたはクリックしてファイルをアップロード
           .main-container__seller
@@ -33,9 +35,14 @@
                 %h3
                   カテゴリー
                   %span.must-icon 必須
-                = f.collection_select :category1, Category1.all, :id, :name, {prompt: "---"},class: "select-default"
-                = f.collection_select :category2, Category2.all, :id, :name, {prompt: "---"},class: "select-default"
-                = f.collection_select :category3, Category3.all, :id, :name, {prompt: "---"},class: "select-default"
+                - category1_options = Category1.order(:id).map { |c| [c.name, c.id, data: { children_path: category1_category2s_path(c) }] }
+                = f.select :category1_id, category1_options, { include_blank: true }, class: 'select-parent select-default'
+                - category2s = @product.category1.try(:category2s) || []
+                - category2_options = category2s.map { |c| [c.name, c.id, data: { path: category1_category2_category3s_path(c) }] }
+                = f.select :category2_id, category2_options, { include_blank: true }, class: 'select-children select-default'
+                - category3s = @product.category2.try(:category3s) || []
+                - category3_options = category3s.map { |c| [c.name, c.id] }
+                = f.select :category3_id, category3_options, { include_blank: true }, class: 'select-grandchildren select-default'
               .form-group
                 %h3
                   商品の状態
@@ -72,13 +79,15 @@
                       %span.form-require.must-icon 必須
                     .l-right.price-input
                       ￥
-                      = f.text_field :price, class: 'input-default',placeholder: "例）300"
+                      = f.text_field :price, class: 'input-default input-price',placeholder: "例）300"
                 %li.clearfix
                   .l-left 販売手数料 (10%)
-                  .l-right -
+                  .l-right
+                    .input-fee ---
                 %li.clearfix
                   .l-left 販売利益
-                  .l-right -
+                  .l-right
+                    .input-profit ---
           .main-container__seller
             %p 禁止されている出品、行為を必ずご確認ください。
             %p またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。

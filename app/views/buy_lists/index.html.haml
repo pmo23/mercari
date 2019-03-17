@@ -1,4 +1,4 @@
-- breadcrumb :list, @list
+- breadcrumb :buy_list, @buy_list
 = render "shared/header"
 = render "shared/nav"
 %main.mypage
@@ -6,24 +6,24 @@
     = render "shared/mypage-side"
     .mypage-content
       %section.mypage-content--sold
-        %h2.mypage-content--sold--tab  出品した商品
+        %h2.mypage-content--sold--tab  購入した商品
         %section.mypage-content--todo
           %ul.mypage-tabs
             %li.active
-              %h3  出品中
+              %h3  取引中
             %li
-              %h3  取引中（工事中）
+              %h3  過去の取引中（工事中）
           .tab-content
             %ul
-              - if @products
-                = @products.each do |product|
+              - if @order
+                = @order.each do |order|
                   %li
-                    =link_to  "/products/#{product.id}", class: 'mypage-item-link' do
+                    =link_to  "/products/#{order.product_id}", class: 'mypage-item-link' do
                       %figure
-                        =image_tag("#{product.image}")
+                        =image_tag("#{ProductImage.find_by(product_id:"#{order.product_id}").product_image}")
                       .mypage-item-body
-                        %p #{product.name}
-                        %p #{product.sales_condition}
+                        %p #{order.product.name}
+                        %p #{order.product.sales_condition}
                       %i.fa.fa-angle-right
               - else
                 %li
