@@ -7,6 +7,8 @@ class Product < ApplicationRecord
   belongs_to :category1
   belongs_to :category2
   belongs_to :category3
+  has_many :comments
+
   validates :name, presence: true, length: {maximum: 40}
   validates :product_description, presence: true, length: {maximum: 1000}
   validates :category1, presence: true
