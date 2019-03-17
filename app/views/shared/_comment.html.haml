@@ -1,0 +1,21 @@
+.item-message
+  .item-message__content
+    - if @comments
+      - @comments.each do |comment|
+        %ul
+          %li.clearfix
+            = link_to '', class: "message-user" do
+              .message-user__icon
+                = image_tag ""
+              .message-user__name
+                = link_to comment.user.nickname
+            .message-body
+              .message-body__text
+                = comment.text
+                .message-body__text_delete
+                = link_to '削除', product_comment_path(@product,comment), method: :delete
+  .container
+    - if current_user
+      = form_for [@product,@comment] do
+        %textarea{:cols => "30", :name => "text", :rows => "2"}
+        %input{:type => "submit", :value => "コメントする"}/
