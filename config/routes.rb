@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   # end
   resources :products do
     resources :buys, only: [:new, :create]
+    resources :comments, only: [:create, :destroy]
     collection do
       get 'search'
     end
