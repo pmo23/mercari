@@ -2,11 +2,11 @@
   .single
     %header.single-header
       %h1.single-header__title
-        =link_to '', class: "single-header__title-link" do
+        =link_to root_path , class: "single-header__title-link" do
           = image_tag "logo.svg", width: "185", height: "49", class: "single-header-title-link-img"
     %main.single-main
-      = form_for @product do |f|
-        %section.main-container
+      %section.main-container
+        = form_for @product do |f|
           %h2.main-container__head 商品の情報を入力
           .main-container__seller
             %h3
@@ -36,13 +36,13 @@
                   カテゴリー
                   %span.must-icon 必須
                 - category1_options = Category1.order(:id).map { |c| [c.name, c.id, data: { children_path: category1_category2s_path(c) }] }
-                = f.select :category1_id, category1_options, { include_blank: true }, class: 'select-parent select-default'
+                = f.select :category1_id, category1_options, { prompt: "---" }, class: 'select-parent select-default'
                 - category2s = @product.category1.try(:category2s) || []
                 - category2_options = category2s.map { |c| [c.name, c.id, data: { path: category1_category2_category3s_path(c) }] }
-                = f.select :category2_id, category2_options, { include_blank: true }, class: 'select-children select-default'
+                = f.select :category2_id, category2_options, { prompt: "---" }, class: 'select-children select-default', style: "display: none;"
                 - category3s = @product.category2.try(:category3s) || []
                 - category3_options = category3s.map { |c| [c.name, c.id] }
-                = f.select :category3_id, category3_options, { include_blank: true }, class: 'select-grandchildren select-default'
+                = f.select :category3_id, category3_options, { prompt: "---" }, class: 'select-grandchildren select-default', style: "display: none;"
               .form-group
                 %h3
                   商品の状態
@@ -94,7 +94,7 @@
             %p また、出品をもちまして加盟店規約に同意したことになります。
             .main-container__inner-content
               = f.submit '出品する',class: 'btn-default btn-sns btn-sns__google'
-              %button#google-login.btn-default.btn-sns.btn-sns__google.back-button
-                =link_to "/" do
-                  %span もどる
+        =link_to root_path do
+          %button.btn-default.back-button
+            %span もどる
   = render "shared/footer2"
