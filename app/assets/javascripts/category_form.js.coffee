@@ -22,6 +22,7 @@ $ ->
             console.log("XMLHttpRequest: #{XMLHttpRequest.status}")
             console.log("textStatus: #{textStatus}")
             console.log("errorThrown: #{errorThrown}")
+        $(".select-children").show()
       else
         replaceSelectOptions($selectChildren, [])
     replaceGrandChildrenOptions = ->
@@ -38,6 +39,7 @@ $ ->
             console.log("XMLHttpRequest: #{XMLHttpRequest.status}")
             console.log("textStatus: #{textStatus}")
             console.log("errorThrown: #{errorThrown}")
+        $(".select-grandchildren").show()
       else
         replaceSelectOptions($selectGrandChildren, [])
     $('.select-parent').on
