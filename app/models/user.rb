@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_one :address, dependent: :destroy
   has_one :credit, dependent: :destroy
   has_many :comments
+  has_many :likes, dependent: :destroy
+  has_many :liked_products, through: :likes, source: :post
 
   validates :nickname, presence: true
 
@@ -35,6 +37,10 @@ class User < ApplicationRecord
     end
 
     user
+  end
+
+  def already_liked?(product)
+    self.likes.exists?(product_id: product.id)
   end
 
   private
