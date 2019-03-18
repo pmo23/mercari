@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :orders
   has_one :address, dependent: :destroy
   has_one :credit, dependent: :destroy
+  has_many :comments
+
   validates :nickname, presence: true
 
   validates :last_name, format: { with:/\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/, message: "名 に数字や特殊文字は使用できません"}, presence: true, unless: :uid?

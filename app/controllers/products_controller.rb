@@ -16,6 +16,8 @@ class ProductsController < ApplicationController
     @category1 = Category1.all
     @category2 = Category2.all
     @category3 = Category3.all
+    @comment = Comment.new
+    @comments = @product.comments.includes(:user)
   end
 
   def create

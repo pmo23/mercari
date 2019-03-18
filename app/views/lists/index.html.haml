@@ -20,7 +20,7 @@
                   %li
                     =link_to  "/products/#{product.id}", class: 'mypage-item-link' do
                       %figure
-                        =image_tag("#{product.image}")
+                        =image_tag("#{product.product_images.first}")
                       .mypage-item-body
                         %p #{product.name}
                         %p #{product.sales_condition}
