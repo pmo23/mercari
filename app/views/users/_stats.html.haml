@@ -1,0 +1,10 @@
+- @user ||= current_user
+.stats
+  = link_to "#{following_user_path(@user)}", class: "stats__following" do
+    %strong#following.stat
+      = @user.followings.count
+    following
+  = link_to "#{followers_user_path(@user)}", class: "stats__followers" do
+    %strong#followers.stat
+      = @user.followers.count
+    followers
