@@ -5,7 +5,9 @@
         =image_tag("member_photo_noimage_thumb.png")
       = current_user.nickname
       .mypage-number
-        %h2  評価 20  出品数 31
+        %h2  評価 20 出品数 31
+    = render 'stats'
+    = render 'follow_form'
   %section.mypage-content--todo
     %ul.mypage-tabs
       %li.active

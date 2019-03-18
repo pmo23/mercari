@@ -35,6 +35,9 @@ Rails.application.routes.draw do
   end
   resources :users do
     member do
+     get :following, :followers
+    end
+    member do
       get 'logout'
       get 'confirmation'
       get 'profile'
@@ -50,4 +53,5 @@ Rails.application.routes.draw do
       resources :category3s, only: :index
     end
   end
+  resources :relationships, only: [:create, :destroy]
 end
