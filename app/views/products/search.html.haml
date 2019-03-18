@@ -16,8 +16,8 @@
         =f.label :name_cont,"キーワードを追加する"
         =f.text_field :name_cont,class: "input-default"
       .search-left--tool__form
-        =f.label :category1_eq,"カテゴリーを選択する"
-        =f.collection_select :category1_eq, @category, :id, :name, {prompt: "すべて"},class: "input-default"
+        =f.label :category1_id_eq,"カテゴリーを選択する"
+        =f.collection_select :category1_id_eq, Category1.all, :id, :name, {prompt: "すべて"},class: "input-default"
       .search-left--tool__form
         =f.label :price_gteq,"価格"
         =f.number_field :price_gteq,class: "input-default", placeholder: "¥ Min"
@@ -46,7 +46,7 @@
         %section.items-box
           =link_to product_path(product) do
             %figure.items-box__photo
-              = image_tag product.image
+              = image_tag product.product_images.first.product_image
             .items-box__body
               %h3.items-box__name
                 = product.name
