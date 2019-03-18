@@ -85,9 +85,13 @@
         .stats {
           &__following {
             right: 10%;
+            left: 40%;
+            text-align: right;
           }
           &__followers {
             left: 10%;
+            right: 40%;
+            text-align: left;
           }
           a {
             position: absolute;
