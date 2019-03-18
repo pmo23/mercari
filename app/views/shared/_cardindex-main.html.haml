@@ -11,8 +11,9 @@
       %section.setting-add-card
         .cardindex-single-content
           %button#google-login.btn-default.btn-sns.btn-sns__google
-            = fa_icon 'credit-card lg' , class: "icon-card"
-            クレジットカードを追加する
+            = link_to new_user_card_path, class: "icon-card" do
+              = fa_icon 'credit-card lg' , class: "icon-card"
+              %span クレジットカードを追加する
       .settings-not-regist
         = link_to '', class: "hoge" do
           %span
