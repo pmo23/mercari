@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> sattsu55/master
 ActiveRecord::Schema.define(version: 20190317145635) do
 
 

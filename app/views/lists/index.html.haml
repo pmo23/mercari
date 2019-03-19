@@ -20,10 +20,10 @@
                   %li
                     =link_to  "/products/#{product.id}", class: 'mypage-item-link' do
                       %figure
-                        =image_tag("#{product.product_images.first}")
+                        =image_tag("#{product.product_images.first.product_image}")
                       .mypage-item-body
                         %p #{product.name}
-                        %p #{product.sales_condition}
+                        %p #{SalesCondition.data[product.sales_condition.to_i].fetch(:name)}
                       %i.fa.fa-angle-right
               - else
                 %li
