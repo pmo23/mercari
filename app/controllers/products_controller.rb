@@ -61,6 +61,7 @@ class ProductsController < ApplicationController
     @condition = Condition.all
     @shippingpay = Shippingpay.all
     @shippingday = Shippingday.all
+    @sales_condition = SalesCondition.all
   end
 
   def move_to_signup
