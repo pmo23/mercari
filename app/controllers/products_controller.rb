@@ -47,6 +47,8 @@ class ProductsController < ApplicationController
   end
 
   def search
+    @product = Product.new
+    @product.product_images.build
   end
 
   private
