@@ -22,5 +22,4 @@ class BuysController < ApplicationController
   def product_sale_params
     params.permit(:product_id).merge(user_id: current_user.id)
   end
-
 end
