@@ -96,7 +96,7 @@ describe ProductsController do
   end
 
   describe 'GET #edit' do
-    before { get :edit, params: { id: product.id } , session: {} }
+    before { get :edit, params: { id: product.id }, session: {} }
 
     it 'assigns the requested product to @product' do
       expect(assigns(:product)).to eq @product
