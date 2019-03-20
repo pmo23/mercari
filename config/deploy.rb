@@ -16,22 +16,21 @@ set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 set :keep_releases, 5
 
-set :default_env, {
-  rbenv_root: "/usr/local/rbenv",
-  path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
-  AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
-  AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"],
-  BASIC_AUTH_USER: ENV["BASIC_AUTH_USER"],
-  BASIC_AUTH_PASSWORD: ENV["BASIC_AUTH_PASSWORD"],
-  RECAPTCHA_SITE_KEY: ENV['RECAPTCHA_SITE_KEY'],
-  RECAPTCHA_SECRET_KEY: ENV['RECAPTCHA_SECRET_KEY'],
-  APP_ID: ENV["APP_ID"],
-  APP_SECRET: ENV["APP_SECRET"],
-  GOOGLE_CLIENT_ID: ENV['GOOGLE_CLIENT_ID'],
-  GOOGLE_CLIENT_SECRET: ENV['GOOGLE_CLIENT_SECRET'],
-  PAYJP_PUBLIC_KEY: ENV["PAYJP_PUBLIC_KEY"],
-  PAYJP_SECRET_KEY: ENV["PAYJP_SECRET_KEY"]
-}
+set :default_env,
+    rbenv_root: "/usr/local/rbenv",
+    path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
+    AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
+    AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"],
+    BASIC_AUTH_USER: ENV["BASIC_AUTH_USER"],
+    BASIC_AUTH_PASSWORD: ENV["BASIC_AUTH_PASSWORD"],
+    RECAPTCHA_SITE_KEY: ENV['RECAPTCHA_SITE_KEY'],
+    RECAPTCHA_SECRET_KEY: ENV['RECAPTCHA_SECRET_KEY'],
+    APP_ID: ENV["APP_ID"],
+    APP_SECRET: ENV["APP_SECRET"],
+    GOOGLE_CLIENT_ID: ENV['GOOGLE_CLIENT_ID'],
+    GOOGLE_CLIENT_SECRET: ENV['GOOGLE_CLIENT_SECRET'],
+    PAYJP_PUBLIC_KEY: ENV["PAYJP_PUBLIC_KEY"],
+    PAYJP_SECRET_KEY: ENV["PAYJP_SECRET_KEY"]
 
 set :linked_files, %w{config/secrets.yml}
 
