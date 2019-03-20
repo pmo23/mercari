@@ -2,9 +2,9 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.create(text: comment_params[:text], product_id: comment_params[:product_id], user_id: current_user.id)
       respond_to do |format|
-      format.html { redirect_to "/products/#{@comment.product.id}" }
+        format.html { redirect_to "/products/#{@comment.product.id}" }
       format.json
-    end
+      end
   end
 
   def destroy
