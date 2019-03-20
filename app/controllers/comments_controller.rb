@@ -18,6 +18,7 @@ class CommentsController < ApplicationController
   end
 
   private
+
   def comment_params
     params.permit(:text, :product_id)
   end
