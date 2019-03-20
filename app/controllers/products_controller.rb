@@ -1,10 +1,9 @@
 class ProductsController < ApplicationController
-  before_action :move_to_signup, except: [:index, :show, :search]
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :move_to_signup, except: %i[index show search]
+  before_action :set_product, only: %i[show edit update destroy]
   protect_from_forgery except: :create
 
-  def index
-  end
+  def index; end
 
   def new
     @product = Product.new
@@ -27,8 +26,7 @@ class ProductsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @product.user_id == current_user.id
@@ -51,7 +49,7 @@ class ProductsController < ApplicationController
   private
 
   def product_sale_params
-    params.require(:product).permit(:name,:product_description,:category1_id,:category2_id,:category3_id,:brand,:postage,:price,:condition,:shipping_method,:ship_from,:shipping_date,:image,product_images_attributes: [:product_image]).merge(sales_condition: 0,user_id: current_user.id)
+    params.require(:product).permit(:name, :product_description, :category1_id, :category2_id, :category3_id, :brand, :postage, :price, :condition, :shipping_method, :ship_from, :shipping_date, :image, product_images_attributes: [:product_image]).merge(sales_condition: 0, user_id: current_user.id)
   end
 
   def move_to_signup
@@ -61,5 +59,4 @@ class ProductsController < ApplicationController
   def set_product
     @product = Product.find(params[:id])
   end
-
 end
