@@ -46,21 +46,21 @@ class User < ApplicationRecord
     following_relationships.find_by(following_id: other_user.id).destroy
   end
 
-   def self.find_for_oauth(auth)
-    user = User.where(uid: auth.uid, provider: auth.provider).first
+  def self.find_for_oauth(auth)
+   user = User.where(uid: auth.uid, provider: auth.provider).first
 
-    unless user
-      user = User.create(
-        uid: auth.uid,
-        provider: auth.provider,
-        nickname: User.dummy_nickname(auth),
-        email: User.dummy_email(auth),
-        password: Devise.friendly_token[0, 20]
-      )
-    end
+   unless user
+     user = User.create(
+       uid: auth.uid,
+       provider: auth.provider,
+       nickname: User.dummy_nickname(auth),
+       email: User.dummy_email(auth),
+       password: Devise.friendly_token[0, 20]
+     )
+   end
 
-    user
-  end
+   user
+ end
 
   def already_liked?(product)
     self.likes.exists?(product_id: product.id)

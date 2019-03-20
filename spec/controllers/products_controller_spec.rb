@@ -106,7 +106,7 @@ describe ProductsController do
   describe 'PATCH #update' do
     it "locates the requersted @product" do
      patch :update, params: {id: product.id}, product: attributes_for(:product)
-      expect(assigns(:product)).to eq @product
+     expect(assigns(:product)).to eq @product
     end
     it "changes @product's attributes" do
       patch :update, params:{id: product.id}, product: attributes_for(:product, name: 'モンベル スペリオダウンジャケット', product_description: '保温性と軽量性を高次元で両立したジャケット')
