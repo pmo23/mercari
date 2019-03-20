@@ -2,7 +2,6 @@ require 'rails_helper'
 
 describe Product do
   describe '#create' do
-
     context "全ての要素が入っている時" do
       it "登録可能" do
         product = build(:product)

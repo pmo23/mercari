@@ -125,5 +125,4 @@ describe ProductsController do
       expect(response).to render_template :search
     end
   end
-
 end

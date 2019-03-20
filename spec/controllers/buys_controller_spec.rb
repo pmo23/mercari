@@ -2,7 +2,6 @@ require 'rails_helper'
 require 'payjp'
 
 describe BuysController do
-
   let(:product) { create(:product) }
   let(:user) { create(:user) }
   let(:address) { create(:address) }
@@ -31,8 +30,6 @@ describe BuysController do
         get :create, params:{ product_id: product.id }
         expect(response).to redirect_to root_path
       end
-
     end
   end
-
 end

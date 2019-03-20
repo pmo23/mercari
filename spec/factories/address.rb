@@ -1,5 +1,4 @@
 FactoryBot.define do
-
   factory :address do
     id                    {"#{Faker::Number.number(1)}"}
     zip_code              {"#{Faker::Number.number(7)}"}
@@ -12,5 +11,4 @@ FactoryBot.define do
     created_at            {"#{Faker::Date.backward(14)}"}
     updated_at            {"#{Faker::Date.backward(14)}"}
   end
-
 end

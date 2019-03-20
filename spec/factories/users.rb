@@ -1,5 +1,4 @@
 FactoryBot.define do
-
   factory :user do
     id                    {"1"}
     created_at            {"20180202"}
@@ -16,5 +15,4 @@ FactoryBot.define do
     provider              {"google"}
     uid                   {"0000000000000000"}
   end
-
 end
