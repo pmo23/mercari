@@ -43,7 +43,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       last_name_kana: session[:last_name_kana],
       first_name_kana: session[:first_name_kana],
       date_of_birth: session[:date_of_birth]
-      )
+    )
     @user.address = @user.build_address(
       zip_code: session[:zip_code],
       prefecture: session[:prefecture],
@@ -51,10 +51,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
       address_line1: session[:address_line1],
       address_line2: session[:address_line2],
       phone_number: session[:phone_number]
-      )
+    )
     @user.credit = @user.build_credit(
       token: token
-      )
+    )
 
     @user.save
     @user.address.save
