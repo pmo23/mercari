@@ -13,12 +13,12 @@ FactoryBot.define do
     shipping_method        { "未定" }
     ship_from              { "福岡県" }
     shipping_date          { "1~2日で発送" }
-    price                  { "#{Faker::Number.number(4)}" }
-    point                  { "#{Faker::Number.number(2)}" }
-    image                  { "#{Faker::Avatar.image}" }
-    sales_condition        { "#{Faker::Number.number(1)}" }
+    price                  { Faker::Number.number(4).to_s }
+    point                  { Faker::Number.number(2).to_s }
+    image                  { Faker::Avatar.image.to_s }
+    sales_condition        { Faker::Number.number(1).to_s }
     user_id                { "1}" }
-    created_at             { "#{Faker::Date.backward(14)}" }
-    updated_at             { "#{Faker::Date.backward(14)}" }
+    created_at             { Faker::Date.backward(14).to_s }
+    updated_at             { Faker::Date.backward(14).to_s }
   end
 end

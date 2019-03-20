@@ -38,7 +38,7 @@ crumb :product do |product|
 end
 
 crumb :search do |search|
-  link "#{search.name_cont}", products_path(search)
+  link search.name_cont.to_s, products_path(search)
   parent :root
 end
 

@@ -70,11 +70,11 @@ class User < ApplicationRecord
     if auth.provider == "facebook" # facebook時の処理
       "#{auth.uid}-#{auth.provider}@example.com"
     else
-      "#{auth.info.email}"
+      auth.info.email.to_s
     end
   end
 
   def self.dummy_nickname(auth)
-    "#{auth.info.name}"
+    auth.info.name.to_s
   end
 end
