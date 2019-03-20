@@ -3,7 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-  prepend_before_action :check_captcha, only: [:address, :new_user_session]
+  prepend_before_action :check_captcha, only: %i[address new_user_session]
   prepend_before_action :customize_sign_up_params, only: [:address]
   protect_from_forgery except: :create
   def registration; end
@@ -72,7 +72,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
   def customize_sign_up_params
-    devise_parameter_sanitizer.permit :sign_up, keys: [:nickname, :email, :password, :password_confirmation, :last_name, :first_name, :last_name_kana, :first_name_kana, :date_of_birth]
+    devise_parameter_sanitizer.permit :sign_up, keys: %i[nickname email password password_confirmation last_name first_name last_name_kana first_name_kana date_of_birth]
   end
 
   def check_captcha

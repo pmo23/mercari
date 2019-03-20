@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :move_to_signup, except: [:index, :show, :search]
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :move_to_signup, except: %i[index show search]
+  before_action :set_product, only: %i[show edit update destroy]
   protect_from_forgery except: :create
 
   def index; end
