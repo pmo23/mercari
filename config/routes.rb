@@ -8,12 +8,12 @@ Rails.application.routes.draw do
   },
                      skip: [:sessions, :registrations]
   as :user do
-    #ログイン
+    # ログイン
     get 'login' => 'users/sessions#new', as: :new_user_session
     post 'login' => 'users/sessions#create', as: :user_session
-    #ログアウト
+    # ログアウト
     delete 'logout' => 'users/sessions#destroy', as: :destroy_user_session
-    #サインアップ
+    # サインアップ
     get 'signup' => 'users/registrations#signup'
     get "/signup/registration" => "users/registrations#registration"
     post "signup/number" => "users/registrations#number"

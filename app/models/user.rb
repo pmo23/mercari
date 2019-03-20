@@ -22,26 +22,26 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
 
-  #フォローのみを考える
+  # フォローのみを考える
   has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
-  #フォローしているユーザーを特定
+  # フォローしているユーザーを特定
   has_many :followings, through: :following_relationships
-  #フォローされることを考える
+  # フォローされることを考える
   has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
-  #フォローされているユーザーを特定
+  # フォローされているユーザーを特定
   has_many :followers, through: :follower_relationships
 
-  #現在のユーザーがフォーローしているかどうか
+  # 現在のユーザーがフォーローしているかどうか
   def following?(other_user)
     following_relationships.find_by(following_id: other_user.id)
   end
 
-  #フォローをする
+  # フォローをする
   def follow!(other_user)
     following_relationships.create!(following_id: other_user.id)
   end
 
-  #フォローを外す
+  # フォローを外す
   def unfollow!(other_user)
     following_relationships.find_by(following_id: other_user.id).destroy
   end
@@ -69,7 +69,7 @@ class User < ApplicationRecord
   private
 
   def self.dummy_email(auth)
-    if auth.provider == "facebook"#facebook時の処理
+    if auth.provider == "facebook"# facebook時の処理
       "#{auth.uid}-#{auth.provider}@example.com"
     else
       "#{auth.info.email}"
