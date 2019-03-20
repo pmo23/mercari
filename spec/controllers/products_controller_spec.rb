@@ -65,7 +65,7 @@ describe ProductsController do
                params: params
         }
         it 'count up message' do
-          expect{ subject }.to change(Product, :count).by(1)
+          expect { subject }.to change(Product, :count).by(1)
         end
         it 'redirects to index' do
           subject
@@ -79,7 +79,7 @@ describe ProductsController do
                params: invalid_params
         }
         it 'does not count up' do
-          expect{ subject }.not_to change(Product, :count)
+          expect { subject }.not_to change(Product, :count)
         end
         it 'renders new' do
           subject
