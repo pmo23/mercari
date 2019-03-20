@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   root "products#index"
   devise_for :users, :controllers => {
-    :sessions           => "users/sessions",
-    :registrations      => "users/registrations",
-    :passwords          => "users/passwords",
-    :omniauth_callbacks =>  "users/omniauth_callbacks",
+    :sessions => "users/sessions",
+    :registrations => "users/registrations",
+    :passwords => "users/passwords",
+    :omniauth_callbacks => "users/omniauth_callbacks",
   },
-  skip: [:sessions, :registrations]
+                     skip: [:sessions, :registrations]
   as :user do
     #ログイン
     get 'login' => 'users/sessions#new', as: :new_user_session
