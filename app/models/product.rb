@@ -10,8 +10,8 @@ class Product < ApplicationRecord
   has_many :likes
   has_many :liked_users, through: :likes, source: :user
 
-  validates :name, presence: true, length: {maximum: 40}
-  validates :product_description, presence: true, length: {maximum: 1000}
+  validates :name, presence: true, length: { maximum: 40 }
+  validates :product_description, presence: true, length: { maximum: 1000 }
   validates :category1, presence: true
   validates :condition, presence: true
   validates :postage, presence: true
