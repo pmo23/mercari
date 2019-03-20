@@ -87,7 +87,7 @@ describe Product do
   describe '#name length' do
     context "nameが40桁の時" do
       it "正しい" do
-        product = FactoryBot.build(:product, name: "a" * 40 )
+        product = FactoryBot.build(:product, name: "a" * 40)
         expect(product).to be_valid
       end
     end
@@ -103,7 +103,7 @@ describe Product do
   describe '#product_description length' do
     context "product_descriptionが1000桁の時" do
       it "正しい" do
-        product = FactoryBot.build(:product, product_description: "a" * 1000 )
+        product = FactoryBot.build(:product, product_description: "a" * 1000)
         expect(product).to be_valid
       end
     end
