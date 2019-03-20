@@ -19,7 +19,7 @@ class User < ApplicationRecord
   validates :first_name_kana, format: { with: /\A[ァ-ンー－]+\Z/, message: "姓カナ を入力してください" }, presence: true, unless: :uid?
   validates :date_of_birth, presence: true, unless: :uid?
 
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
 
   # フォローのみを考える
