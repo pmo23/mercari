@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   end
   resources :users do
     member do
-     get :following, :followers
+      get :following, :followers
     end
     member do
       get 'logout'

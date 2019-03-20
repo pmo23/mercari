@@ -65,7 +65,7 @@ describe ProductsController do
                params: params
         }
         it 'count up message' do
-           expect{ subject }.to change(Product, :count).by(1)
+          expect{ subject }.to change(Product, :count).by(1)
         end
         it 'redirects to index' do
           subject
@@ -105,8 +105,8 @@ describe ProductsController do
 
   describe 'PATCH #update' do
     it "locates the requersted @product" do
-     patch :update, params: {id: product.id}, product: attributes_for(:product)
-     expect(assigns(:product)).to eq @product
+      patch :update, params: {id: product.id}, product: attributes_for(:product)
+      expect(assigns(:product)).to eq @product
     end
     it "changes @product's attributes" do
       patch :update, params:{id: product.id}, product: attributes_for(:product, name: 'モンベル スペリオダウンジャケット', product_description: '保温性と軽量性を高次元で両立したジャケット')
