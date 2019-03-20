@@ -61,9 +61,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     if session[:user_id] = @user.id
       sign_up(@user, current_user)
-      redirect_to :action => 'done'
+      redirect_to action: 'done'
     else
-      redirect_to :action => 'registration'
+      redirect_to action: 'registration'
     end
   end
 
