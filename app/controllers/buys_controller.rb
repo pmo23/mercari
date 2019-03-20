@@ -13,7 +13,7 @@ class BuysController < ApplicationController
     charge = Payjp::Charge.create( amount: @product.price, card: params['payjp-token'], currency: 'jpy' )
     @product.update_column(:sales_condition, '1')
     @order.save
-    flash[:notice] =  "支払いが完了しました"
+    flash[:notice] = "支払いが完了しました"
     redirect_to root_path
   end
 

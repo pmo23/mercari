@@ -15,6 +15,6 @@ CarrierWave.configure do |config|
     region: 'us-east-2'
   }
   end
-  config.fog_directory  = 'sattsu55'
+  config.fog_directory = 'sattsu55'
   config.asset_host = 'https://s3-us-east-2.amazonaws.com/sattsu55'
 end
