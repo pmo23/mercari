@@ -3,8 +3,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   protect_from_forgery except: :create
 
-  def index
-  end
+  def index; end
 
   def new
     @product = Product.new
@@ -27,8 +26,7 @@ class ProductsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @product.user_id == current_user.id

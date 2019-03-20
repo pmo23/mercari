@@ -6,8 +6,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   prepend_before_action :check_captcha, only: [:address, :new_user_session]
   prepend_before_action :customize_sign_up_params, only: [:address]
   protect_from_forgery except: :create
-  def registration
-  end
+  def registration; end
 
   def address
     session[:nickname] = params[:session][:nickname]
@@ -68,8 +67,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
-  def done
-  end
+  def done; end
 
   private
 

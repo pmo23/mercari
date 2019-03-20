@@ -1,21 +1,17 @@
 class UsersController < ApplicationController
   before_action :move_to_index, except: [:new]
 
-  def new
-  end
+  def new; end
 
   def show
     @user = User.find(params[:id])
   end
 
-  def logout
-  end
+  def logout; end
 
-  def confirmation
-  end
+  def confirmation; end
 
-  def profile
-  end
+  def profile; end
 
   def following
     @user  = User.find(params[:id])
