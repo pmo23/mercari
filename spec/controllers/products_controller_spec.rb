@@ -60,10 +60,10 @@ describe ProductsController do
         login user
       end
       context 'can save' do
-        subject {
+        subject do
           post :create,
                params: params
-        }
+        end
         it 'count up message' do
           expect { subject }.to change(Product, :count).by(1)
         end
@@ -74,10 +74,10 @@ describe ProductsController do
       end
       context 'can not save' do
         let(:invalid_params) { { user_id: user.id, product: attributes_for(:product, name: nil) } }
-        subject {
+        subject do
           post :create,
                params: invalid_params
-        }
+        end
         it 'does not count up' do
           expect { subject }.not_to change(Product, :count)
         end
