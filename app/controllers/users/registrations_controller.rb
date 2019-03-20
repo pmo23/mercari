@@ -66,7 +66,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     else
       redirect_to :action => 'registration'
     end
-
   end
 
   def done
