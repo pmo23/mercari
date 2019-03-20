@@ -32,7 +32,7 @@ set :default_env,
     PAYJP_PUBLIC_KEY: ENV["PAYJP_PUBLIC_KEY"],
     PAYJP_SECRET_KEY: ENV["PAYJP_SECRET_KEY"]
 
-set :linked_files, %w{config/secrets.yml}
+set :linked_files, %w[config/secrets.yml]
 
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
