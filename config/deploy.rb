@@ -42,7 +42,7 @@ namespace :deploy do
   end
   desc 'db_seed'
   task :db_seed do
-    on roles(:db) do |host|
+    on roles(:db) do |_host|
       with rails_env: fetch(:rails_env) do
         within current_path do
           execute :bundle, :exec, :rake, 'db:seed'
@@ -61,7 +61,7 @@ namespace :deploy do
   end
   desc 'upload secrets.yml'
   task :upload do
-    on roles(:app) do |host|
+    on roles(:app) do |_host|
       if test "[ ! -d #{shared_path}/config ]"
         execute "mkdir -p #{shared_path}/config"
       end
