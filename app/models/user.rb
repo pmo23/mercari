@@ -3,11 +3,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable
-  has_many :products
-  has_many :orders
+  has_many :products, dependent: :destroy
+  has_many :orders, dependent: :destroy
   has_one :address, dependent: :destroy
   has_one :credit, dependent: :destroy
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :liked_products, through: :likes, source: :post
 
@@ -46,6 +46,10 @@ class User < ApplicationRecord
     following_relationships.find_by(following_id: other_user.id).destroy
   end
 
+  def already_liked?(product)
+    likes.exists?(product_id: product.id)
+  end
+
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
 
@@ -59,10 +63,6 @@ class User < ApplicationRecord
 
     user
  end
-
-  def already_liked?(product)
-    likes.exists?(product_id: product.id)
-  end
 
   private
 
