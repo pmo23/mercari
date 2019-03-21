@@ -11,7 +11,8 @@
               .message-body__text
                 = comment.text
                 .message-body__text_delete
-                = link_to '削除', product_comment_path(@product,comment), method: :delete
+                - if user_signed_in? && comment.user_id == current_user.id
+                  = link_to '削除', product_comment_path(@product,comment), method: :delete
   .container
     - if current_user
       = form_for [@product,@comment], id: "new_comment" do

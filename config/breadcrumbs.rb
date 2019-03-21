@@ -8,12 +8,12 @@ crumb :user do |_user|
 end
 
 crumb :list do |_list|
-  link "出品したやつ"
+  link "出品した商品"
   parent :user
 end
 
 crumb :buy_list do |_buy_list|
-  link "購入したやつ"
+  link "購入した商品"
   parent :user
 end
 
@@ -46,11 +46,4 @@ crumb :catergory do |catergory|
   link "カテゴリー一覧", products_path(@catergory)
   parent :root
   link "p#{catergory}"
-
-  # parent :catergory
-  # link "#{catergory2}"
-  # parent :catergory1
-
-  # link "#{catergory3}"
-  # parent :catergory2
 end
